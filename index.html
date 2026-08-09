@@ -97,12 +97,14 @@
             return `https://www.youtube.com/results?search_query=${query}`;
         };
 
-        // Builds the embedded-player URL for the featured song. Instead of
-        // playing a single video and stopping, we attach a playlist so playback
-        // continues through more of the artist's songs. A curated official
-        // playlist (artist.youtubePlaylistId) is preferred when present;
-        // otherwise we seed a YouTube "Mix" radio from the featured video
-        // (list=RD<videoId>), which auto-continues with that artist's catalog.
+        // Builds the embedded-player URL for the featured song so playback
+        // continues through more of the SAME artist's songs rather than
+        // stopping after one. Each artist carries a same-artist playlist
+        // (artist.youtubePlaylistId) — the uploads playlist of that artist's
+        // own YouTube channel — which we start from the featured video. We
+        // deliberately avoid YouTube "Mix" radios (list=RD…), which drift to
+        // other artists. If no playlist exists, we fall back to a playlist
+        // built only from the artist's own verified videos, never a mix.
         const buildVideoEmbedUrl = (artist, song) => {
             const base = 'https://www.youtube.com/embed';
             const playerParams = 'rel=0&modestbranding=1&playsinline=1';
@@ -113,7 +115,10 @@
                     : `${base}/videoseries?list=${artist.youtubePlaylistId}&${playerParams}`;
             }
 
-            return `${base}/${song.youtubeId}?list=RD${song.youtubeId}&${playerParams}`;
+            const ownVideoIds = (artist.songs || []).map((s) => s.youtubeId).filter(Boolean);
+            const continuationIds = ownVideoIds.filter((id) => id !== song.youtubeId);
+            const adHocPlaylist = continuationIds.length ? `&playlist=${continuationIds.join(',')}` : '';
+            return `${base}/${song.youtubeId}?${playerParams}${adHocPlaylist}`;
         };
 
         // Deterministic "artist of the day" — mirrors the bot's dailyArtist.js so the
