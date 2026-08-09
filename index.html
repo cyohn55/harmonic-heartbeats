@@ -129,8 +129,20 @@
             return hash;
         };
         const dailyDateKey = (date) => date.toISOString().slice(0, 10);
-        const getDailyArtist = (artists, date = new Date()) =>
-            artists[hashDateString(dailyDateKey(date)) % artists.length];
+
+        // Specific calendar dates can pin a specific artist (by id). Every other
+        // day falls through to the deterministic daily rotation below, so the
+        // featured band still switches automatically.
+        const DAILY_ARTIST_OVERRIDES = {
+            '2026-08-09': 'lola-young',
+        };
+
+        const getDailyArtist = (artists, date = new Date()) => {
+            const pinnedId = DAILY_ARTIST_OVERRIDES[dailyDateKey(date)];
+            const pinnedArtist = pinnedId && artists.find((artist) => artist.id === pinnedId);
+            if (pinnedArtist) return pinnedArtist;
+            return artists[hashDateString(dailyDateKey(date)) % artists.length];
+        };
 
         // Real public-domain artwork (paintings across movements) sourced from
         // The Metropolitan Museum of Art's Open Access collection. The Gallery
