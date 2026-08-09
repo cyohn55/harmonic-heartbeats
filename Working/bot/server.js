@@ -50,18 +50,24 @@ function createServer(overrides = {}) {
     try {
       body = JSON.parse(rawBody || '{}');
     } catch (error) {
+      console.error('Could not parse webhook body:', error.message);
       return;
     }
-    for (const message of parseInboundMessages(body)) {
-      if (!message.text || !isRecipientAllowed(config, message.userId)) {
+    const inboundMessages = parseInboundMessages(body);
+    console.log(`Inbound webhook received: ${inboundMessages.length} message(s)`);
+    for (const message of inboundMessages) {
+      const allowed = isRecipientAllowed(config, message.userId);
+      console.log(`  from=${message.userId} type=${message.type} allowed=${allowed} allowlist=[${config.allowedRecipients.join(',')}]`);
+      if (!message.text || !allowed) {
         continue;
       }
       const { replies } = handleMessage({ userId: message.userId, text: message.text }, { repository, store });
       for (const reply of replies) {
         try {
           await adapter.sendText(message.userId, reply);
+          console.log(`  -> sent reply to ${message.userId}`);
         } catch (error) {
-          console.error('Failed to send WhatsApp reply:', error.message);
+          console.error(`  -> FAILED to send to ${message.userId}:`, error.message);
         }
       }
     }
