@@ -762,6 +762,38 @@
             </div>
         );
 
+        // Beeb's birthday is August 9th. On that date (any year) the page greets
+        // her with confetti and a message the first time it loads.
+        const isBirthdayToday = (date = new Date()) => date.getMonth() === 7 && date.getDate() === 9;
+
+        const fireBirthdayConfetti = () => {
+            if (typeof confetti !== 'function') return;
+            const colors = ['#f43f5e', '#be123c', '#ffffff', '#fde047'];
+            confetti({ particleCount: 140, spread: 100, origin: { y: 0.6 }, colors });
+            // A gentle side-cannon shower for a couple of seconds after the burst.
+            const end = Date.now() + 2500;
+            (function frame() {
+                confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors });
+                confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            })();
+        };
+
+        const BirthdayOverlay = ({ onClose }) => (
+            <div onClick={onClose}
+                className="absolute inset-0 z-40 flex items-center justify-center p-6 bg-slate-950/70 backdrop-blur-sm animate-fade-in cursor-pointer">
+                <div className="bg-gradient-to-br from-brand-600 to-brand-900 border border-brand-400/40 rounded-3xl p-8 max-w-xs text-center shadow-2xl shadow-brand-900/50 animate-slide-up">
+                    <div className="text-5xl mb-3">🎂🎉</div>
+                    <h2 className="text-2xl font-extrabold text-white mb-2 leading-snug">Happy Birthday Beeb!</h2>
+                    <p className="text-brand-100 font-semibold text-lg">Love, Cody!</p>
+                    <button onClick={onClose}
+                        className="mt-6 bg-white/90 hover:bg-white text-brand-700 font-bold py-2.5 px-6 rounded-full transition-colors">
+                        🎈 Tap to celebrate
+                    </button>
+                </div>
+            </div>
+        );
+
         const App = () => {
             // The daily email links to "#today", which should open the Today tab.
             const initialTab = window.location.hash.replace('#', '') === 'today' ? 'today' : 'bands';
@@ -769,6 +801,12 @@
             const [selectedBand, setSelectedBand] = useState(null);
             const [artists, setArtists] = useState(null);
             const [loadError, setLoadError] = useState(null);
+            const [showBirthday, setShowBirthday] = useState(isBirthdayToday());
+
+            // Fire the birthday confetti once, on first load, only on August 9th.
+            useEffect(() => {
+                if (isBirthdayToday()) fireBirthdayConfetti();
+            }, []);
 
             // Load the shared artist dataset once when the app mounts.
             useEffect(() => {
@@ -820,6 +858,8 @@
                     )}
 
                     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white/20 rounded-full z-30"></div>
+
+                    {showBirthday && <BirthdayOverlay onClose={() => setShowBirthday(false)} />}
                 </div>
             );
         };
