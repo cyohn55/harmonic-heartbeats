@@ -1,0 +1,69 @@
+name: Daily Harmonic Heartbeats Email
+
+# Free daily nudge: emails the link to the day's Harmonic Heartbeats page at 9am
+# Eastern. GitHub cron runs in UTC and has no daylight-saving awareness, so we fire
+# at both 13:00 UTC (9am EDT) and 14:00 UTC (9am EST) and only actually send when it
+# is 9am in America/New_York. Manual runs (workflow_dispatch) always send, for testing.
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 09:00 America/New_York during EDT (summer)
+    - cron: '0 14 * * *'   # 09:00 America/New_York during EST (winter)
+  workflow_dispatch: {}
+
+jobs:
+  send-daily-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Only proceed at 9am Eastern (scheduled runs)
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            HOUR="$(TZ=America/New_York date +%H)"
+            echo "Eastern hour is $HOUR"
+            if [ "$HOUR" != "09" ]; then
+              echo "Not 9am Eastern yet; skipping."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Determine today's artist
+        if: steps.gate.outputs.skip != 'true'
+        id: artist
+        run: node .github/scripts/todaysArtist.js >> "$GITHUB_OUTPUT"
+
+      - name: Send the daily email
+        if: steps.gate.outputs.skip != 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.mail.yahoo.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Harmonic Heartbeats <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.RECIPIENT_EMAIL }}
+          subject: "🎵 Today's Harmonic Heartbeats: ${{ steps.artist.outputs.name }}"
+          html_body: |
+            <div style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 480px; margin: 0 auto; background:#0f172a; color:#e2e8f0; border-radius:16px; overflow:hidden;">
+              <div style="background: linear-gradient(135deg,#f43f5e,#be123c); padding: 28px 24px;">
+                <p style="margin:0; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#ffe4e6;">Harmonic Heartbeats</p>
+                <h1 style="margin:6px 0 0; font-size:24px; color:#fff;">Good morning 💛</h1>
+              </div>
+              <div style="padding: 24px;">
+                <p style="margin:0 0 4px; font-size:13px; color:#94a3b8;">Today's artist is</p>
+                <h2 style="margin:0 0 2px; font-size:26px; color:#fff;">${{ steps.artist.outputs.name }}</h2>
+                <p style="margin:0 0 20px; font-size:14px; color:#f43f5e;">${{ steps.artist.outputs.genre }} &middot; featuring &ldquo;${{ steps.artist.outputs.song }}&rdquo;</p>
+                <a href="https://cyohn55.github.io/harmonic-heartbeats/#today"
+                   style="display:inline-block; background:#f43f5e; color:#fff; text-decoration:none; font-weight:700; padding:14px 28px; border-radius:9999px;">
+                  ▶ Watch &amp; play today's trivia
+                </a>
+                <p style="margin:24px 0 0; font-size:12px; color:#64748b;">A little something for you every morning. 🎶</p>
+              </div>
+            </div>
