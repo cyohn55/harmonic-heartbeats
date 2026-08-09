@@ -75,27 +75,33 @@ function createServer(overrides = {}) {
 
   return http.createServer(async (request, response) => {
     const url = new URL(request.url, `http://${request.headers.host}`);
+    // Log every request so we can see exactly what Meta hits (method + path).
+    console.log(`Request: ${request.method} ${url.pathname}`);
 
-    if (request.method === 'GET' && url.pathname === '/') {
+    // Normalize a trailing slash so "/webhook/" is treated as "/webhook".
+    const routePath = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, '') : url.pathname;
+
+    if (request.method === 'GET' && routePath === '/') {
       response.writeHead(200, { 'Content-Type': 'text/plain' });
       response.end('Harmonic Heartbeats WhatsApp bot is running.');
       return;
     }
 
-    if (request.method === 'GET' && url.pathname === '/webhook') {
+    if (request.method === 'GET' && routePath === '/webhook') {
       const query = Object.fromEntries(url.searchParams.entries());
       const challenge = verifyWebhookSubscription(query, config.verifyToken);
       if (challenge !== null) {
         response.writeHead(200, { 'Content-Type': 'text/plain' });
         response.end(challenge);
       } else {
+        console.error('Webhook verification FAILED — verify token did not match.');
         response.writeHead(403);
         response.end('Verification failed');
       }
       return;
     }
 
-    if (request.method === 'POST' && url.pathname === '/webhook') {
+    if (request.method === 'POST' && routePath === '/webhook') {
       const rawBody = await collectRequestBody(request);
       if (!verifySignature(rawBody, request.headers['x-hub-signature-256'], config.appSecret)) {
         response.writeHead(401);
