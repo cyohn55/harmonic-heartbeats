@@ -4,3 +4,12 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Secrets — never commit real credentials (the .env.example template is fine)
+.env
+.env.local
+*.env
+!.env.example
+
+# Node
+node_modules/

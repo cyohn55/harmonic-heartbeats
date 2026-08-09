@@ -86,28 +86,16 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        const EXPANDED_BANDS_DATASET = [
-            { id: '1', name: 'Coldplay', genre: 'Alternative Rock', category: 'Rock', active: true, icon: 'fa-cloud-moon' },
-            { id: '2', name: 'Taylor Swift', genre: 'Pop / Country', category: 'Pop', active: true, icon: 'fa-heart' },
-            { id: '3', name: 'Daft Punk', genre: 'Electronic / French House', category: 'Electronic', active: true, icon: 'fa-robot' },
-            { id: '4', name: 'Arctic Monkeys', genre: 'Indie Rock', category: 'Indie', active: true, icon: 'fa-guitar' },
-            { id: '5', name: 'Paramore', genre: 'Pop-Punk / Alt-Rock', category: 'Rock', active: true, icon: 'fa-bolt' },
-            { id: '6', name: 'Queen', genre: 'Classic Rock', category: 'Classic Rock', active: true, icon: 'fa-crown' },
-            { id: '7', name: 'Harry Styles', genre: 'Pop / Rock', category: 'Pop', active: true, icon: 'fa-star' },
-            { id: '8', name: 'Dua Lipa', genre: 'Nu-Disco / Pop', category: 'Pop', active: true, icon: 'fa-compact-disc' },
-            { id: '9', name: 'Billie Eilish', genre: 'Alt-Pop / Electronic', category: 'Pop', active: true, icon: 'fa-moon' },
-            { id: '10', name: 'Beyoncé', genre: 'R&B / Pop', category: 'R&B', active: true, icon: 'fa-gem' },
-            { id: '11', name: 'Radiohead', genre: 'Experimental Rock / Art Rock', category: 'Indie', active: true, icon: 'fa-brain' },
-            { id: '12', name: 'The Killers', genre: 'Indie Rock / New Wave', category: 'Rock', active: true, icon: 'fa-dice' },
-            { id: '13', name: 'Pink Floyd', genre: 'Psychedelic Rock / Progressive', category: 'Classic Rock', active: true, icon: 'fa-record-vinyl' },
-            { id: '14', name: 'The Beatles', genre: 'Rock / Pop', category: 'Classic Rock', active: true, icon: 'fa-bug' },
-            { id: '15', name: 'Kendrick Lamar', genre: 'Conscious Hip-Hop', category: 'Hip-Hop', active: true, icon: 'fa-microphone' },
-            { id: '16', name: 'Justice', genre: 'Electro House / French Touch', category: 'Electronic', active: true, icon: 'fa-music' },
-            { id: '17', name: 'Mumford & Sons', genre: 'Folk Rock / Bluegrass', category: 'Folk/Country', active: true, icon: 'fa-guitar' },
-            { id: '18', name: 'ABBA', genre: 'Euro-Pop / Disco', category: 'Pop', active: true, icon: 'fa-star' },
-            { id: '19', name: 'Miles Davis', genre: 'Cool Jazz / Fusion', category: 'Jazz', active: true, icon: 'fa-headphones' },
-            { id: '20', name: 'The Weeknd', genre: 'R&B / Synth-Pop', category: 'R&B', active: true, icon: 'fa-fire' }
-        ];
+        // Artists (with verified trivia & songs) are loaded at runtime from the
+        // shared dataset so the website and the WhatsApp bot use one source of truth.
+        const ARTIST_DATASET_URL = './data/artists.json';
+
+        // Builds a real "Listen Now" link from the artist and song, mirroring the
+        // bot's songLinks module so both channels behave identically.
+        const buildYouTubeSearchUrl = (artistName, songTitle) => {
+            const query = encodeURIComponent(`${artistName} ${songTitle}`.trim());
+            return `https://www.youtube.com/results?search_query=${query}`;
+        };
 
         const generateExpandedArtworkDatabase = () => {
             const artStyles = [
@@ -148,67 +136,16 @@
 
         const UPCOMING_ARTWORK_DATABASE = generateExpandedArtworkDatabase();
 
-        const BAND_TRIVIA_DATABASE = {
-            'Coldplay': {
-                songs: [
-                    { title: "Yellow", url: "https://www.youtube.com/watch?v=yKNxeF4KMsY", fact: "Chris Martin walked along the beach in Studland Bay in one continuous take for the iconic video." },
-                    { title: "Viva La Vida", url: "https://www.youtube.com/watch?v=dvgZkm1xWPE", fact: "The song title was inspired by a painting by Mexican artist Frida Kahlo." },
-                ],
-                triviaPool: [
-                    { question: "What was Coldplay's original band name when formed in 1996?", options: ["Starfish", "Pectoralz", "The Gold Rush", "Blue Room"], correctAnswer: "Pectoralz", explanation: "Chris Martin and Jonny Buckland first formed a duo called Pectoralz before becoming Starfish, then Coldplay." },
-                    { question: "Which album featured the hit single 'Clocks'?", options: ["Parachutes", "A Rush of Blood to the Head", "X&Y", "Mylo Xyloto"], correctAnswer: "A Rush of Blood to the Head", explanation: "'Clocks' was released in 2002 on their second studio album." },
-                    { question: "What instrument does Will Champion play in Coldplay?", options: ["Lead Guitar", "Bass", "Drums", "Keyboard"], correctAnswer: "Drums", explanation: "Will Champion joined as the drummer despite never having played drums before joining!" }
-                ]
-            },
-            'Taylor Swift': {
-                songs: [
-                    { title: "Love Story", url: "https://www.youtube.com/watch?v=8xg3vE8Ie_E", fact: "Written on Taylor's bedroom floor in under 20 minutes after her family disagreed with a boy she liked." },
-                ],
-                triviaPool: [
-                    { question: "What is Taylor Swift's lucky number?", options: ["7", "13", "22", "89"], correctAnswer: "13", explanation: "Taylor was born on the 13th, turned 13 on Friday the 13th, and paints 13 on her hand." },
-                    { question: "Which of Taylor's albums was her first official pop album?", options: ["Red", "1989", "Reputation", "Lover"], correctAnswer: "1989", explanation: "1989 was officially announced as her first documented full pop album." }
-                ]
-            }
-        };
-
-        const getBandTriviaAndSongs = (bandName, genre = 'Music') => {
-            if (BAND_TRIVIA_DATABASE[bandName]) {
-                return BAND_TRIVIA_DATABASE[bandName];
-            }
-
-            return {
-                songs: [
-                    { title: `${bandName}'s Breakthrough Hit`, url: "#", fact: `${bandName} achieved widespread critical acclaim with this defining performance.` },
-                    { title: `${bandName}'s Chart-Topping Anthem`, url: "#", fact: `This track showcases the signature sound that ${bandName} is celebrated for.` }
-                ],
-                triviaPool: [
-                    {
-                        question: `Which hit single brought ${bandName} international mainstream recognition?`,
-                        options: ["Breakthrough Single", "Top Chart Ballad", "Debut Anthem", "Acoustic Session"],
-                        correctAnswer: "Breakthrough Single",
-                        explanation: `This standout release catapulted ${bandName} into global music chart prominence.`
-                    },
-                    {
-                        question: `What primary musical style or genre defines the career of ${bandName}?`,
-                        options: [genre, "Pop / Dance", "Classic Rock", "Indie Folk"],
-                        correctAnswer: genre,
-                        explanation: `${bandName} is widely recognized as a premier artist within the ${genre} scene.`
-                    },
-                    {
-                        question: `In what decade did ${bandName} primarily rise to critical acclaim?`,
-                        options: ["1990s", "2000s", "2010s", "2020s"],
-                        correctAnswer: "2000s",
-                        explanation: `Their most defining work that shaped their legacy was prominently released in the 2000s.`
-                    },
-                    {
-                        question: `What is a common theme in the songwriting of ${bandName}?`,
-                        options: ["Personal introspection", "Political rebellion", "Sci-fi concepts", "Historical events"],
-                        correctAnswer: "Personal introspection",
-                        explanation: `They are highly regarded for their deeply personal and relatable lyrical content.`
-                    }
-                ]
-            };
-        };
+        // Adapts a loaded artist record into the shape the chat quiz consumes,
+        // attaching a real listen link to each song.
+        const getBandTriviaAndSongs = (artist) => ({
+            triviaPool: artist.trivia,
+            songs: artist.songs.map((song) => ({
+                title: song.title,
+                fact: song.fact,
+                url: buildYouTubeSearchUrl(artist.name, song.title),
+            })),
+        });
 
         const PhoneHeader = ({ title, onBack, showBack }) => (
             <div className="bg-slate-900/95 backdrop-blur-md sticky top-0 z-20 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
@@ -249,10 +186,10 @@
             </div>
         );
 
-        const BandsList = ({ onSelectBand }) => {
+        const BandsList = ({ bands, onSelectBand }) => {
             const [search, setSearch] = useState('');
 
-            const filteredBands = EXPANDED_BANDS_DATASET.filter(b =>
+            const filteredBands = bands.filter(b =>
                 b.name.toLowerCase().includes(search.toLowerCase()) ||
                 b.genre.toLowerCase().includes(search.toLowerCase())
             );
@@ -317,7 +254,7 @@
             // even for the last question, whose setScore hasn't committed yet.
             const scoreRef = useRef(0);
 
-            const data = getBandTriviaAndSongs(band.name, band.genre);
+            const data = getBandTriviaAndSongs(band);
 
             const scrollToBottom = () => {
                 messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -547,9 +484,29 @@
             );
         };
 
+        const LoadingScreen = ({ message }) => (
+            <div className="flex-1 flex flex-col items-center justify-center text-center p-8 gap-4 animate-fade-in">
+                <i className="fas fa-compact-disc text-4xl text-brand-500 animate-spin"></i>
+                <p className="text-slate-400 text-sm">{message}</p>
+            </div>
+        );
+
         const App = () => {
             const [activeTab, setActiveTab] = useState('bands');
             const [selectedBand, setSelectedBand] = useState(null);
+            const [artists, setArtists] = useState(null);
+            const [loadError, setLoadError] = useState(null);
+
+            // Load the shared artist dataset once when the app mounts.
+            useEffect(() => {
+                fetch(ARTIST_DATASET_URL)
+                    .then((response) => {
+                        if (!response.ok) throw new Error(`Failed to load artists (${response.status})`);
+                        return response.json();
+                    })
+                    .then((data) => setArtists(data.artists))
+                    .catch((error) => setLoadError(error.message));
+            }, []);
 
             const handleBack = () => {
                 setSelectedBand(null);
@@ -575,7 +532,13 @@
                         {selectedBand ? (
                             <SMSChat band={selectedBand} key={selectedBand.id} />
                         ) : activeTab === 'bands' ? (
-                            <BandsList onSelectBand={setSelectedBand} />
+                            loadError ? (
+                                <LoadingScreen message={`Couldn't load artists: ${loadError}`} />
+                            ) : artists === null ? (
+                                <LoadingScreen message="Loading today's lineup..." />
+                            ) : (
+                                <BandsList bands={artists} onSelectBand={setSelectedBand} />
+                            )
                         ) : (
                             <ArtGallery />
                         )}

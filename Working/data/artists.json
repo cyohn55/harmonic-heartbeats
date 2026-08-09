@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "description": "Curated, fact-checked trivia and signature songs. Single source of truth for both the web app and the WhatsApp bot. correctAnswer must exactly match one entry in options.",
+  "artists": [
+    {
+      "id": "coldplay",
+      "name": "Coldplay",
+      "genre": "Alternative Rock",
+      "icon": "fa-cloud-moon",
+      "songs": [
+        { "title": "Yellow", "fact": "Chris Martin walked along the beach at Studland Bay in one continuous take for the iconic video." },
+        { "title": "Viva La Vida", "fact": "The title was borrowed from a painting by Mexican artist Frida Kahlo." }
+      ],
+      "trivia": [
+        { "question": "What was Coldplay's band name before they settled on Coldplay?", "options": ["Starfish", "Pectoralz", "The Gold Rush", "Blue Room"], "correctAnswer": "Pectoralz", "explanation": "Chris Martin and Jonny Buckland first played as Pectoralz, then Starfish, before becoming Coldplay." },
+        { "question": "Which album featured the hit single 'Clocks'?", "options": ["Parachutes", "A Rush of Blood to the Head", "X&Y", "Mylo Xyloto"], "correctAnswer": "A Rush of Blood to the Head", "explanation": "'Clocks' was released in 2002 on their second studio album." },
+        { "question": "What instrument does Will Champion play in Coldplay?", "options": ["Lead Guitar", "Bass", "Drums", "Keyboard"], "correctAnswer": "Drums", "explanation": "Will Champion became the drummer despite not having played drums before joining." }
+      ]
+    },
+    {
+      "id": "taylor-swift",
+      "name": "Taylor Swift",
+      "genre": "Pop / Country",
+      "icon": "fa-heart",
+      "songs": [
+        { "title": "Love Story", "fact": "Taylor wrote it on her bedroom floor in about 20 minutes after her family disapproved of a boy she liked." },
+        { "title": "Shake It Off", "fact": "The lead single from 1989, her first album marketed as a full pop record." }
+      ],
+      "trivia": [
+        { "question": "What is Taylor Swift's lucky number?", "options": ["7", "13", "22", "89"], "correctAnswer": "13", "explanation": "She was born on the 13th and has long treated 13 as her lucky number." },
+        { "question": "Which was Taylor's first album marketed as a full pop record?", "options": ["Red", "1989", "Reputation", "Lover"], "correctAnswer": "1989", "explanation": "1989 was her official pivot from country to pop." },
+        { "question": "What subtitle marks Taylor's re-recorded albums made to reclaim her masters?", "options": ["(Taylor's Version)", "(Remastered)", "(Reloaded)", "(The Vault)"], "correctAnswer": "(Taylor's Version)", "explanation": "She re-recorded her early catalog under the label '(Taylor's Version)'." }
+      ]
+    },
+    {
+      "id": "queen",
+      "name": "Queen",
+      "genre": "Classic Rock",
+      "icon": "fa-crown",
+      "songs": [
+        { "title": "Bohemian Rhapsody", "fact": "A six-minute, chorus-less epic that topped the UK singles chart twice: in 1975 and again in 1991." },
+        { "title": "Don't Stop Me Now", "fact": "A high-energy Freddie Mercury showcase that became one of the band's most-streamed songs." }
+      ],
+      "trivia": [
+        { "question": "On which island was Freddie Mercury born?", "options": ["Zanzibar", "Malta", "Cyprus", "Sri Lanka"], "correctAnswer": "Zanzibar", "explanation": "Freddie Mercury (born Farrokh Bulsara) was born in Stone Town, Zanzibar, in 1946." },
+        { "question": "In what field did guitarist Brian May earn his PhD?", "options": ["Astrophysics", "Chemistry", "Music", "Biology"], "correctAnswer": "Astrophysics", "explanation": "Brian May completed his PhD in astrophysics at Imperial College London in 2007." },
+        { "question": "What was Freddie Mercury's birth name?", "options": ["Farrokh Bulsara", "Frederick Bull", "Faisal Mercury", "Fredrik Bahri"], "correctAnswer": "Farrokh Bulsara", "explanation": "He was born Farrokh Bulsara and adopted the stage name Freddie Mercury." }
+      ]
+    },
+    {
+      "id": "the-beatles",
+      "name": "The Beatles",
+      "genre": "Rock / Pop",
+      "icon": "fa-bug",
+      "songs": [
+        { "title": "Hey Jude", "fact": "Paul McCartney wrote it to comfort John Lennon's son Julian; at over seven minutes it was among the longest singles to top the charts." },
+        { "title": "Let It Be", "fact": "One of the last singles the band released before their breakup." }
+      ],
+      "trivia": [
+        { "question": "In which city were The Beatles formed?", "options": ["London", "Liverpool", "Manchester", "Birmingham"], "correctAnswer": "Liverpool", "explanation": "The Beatles formed in Liverpool in 1960." },
+        { "question": "What was Ringo Starr's birth name?", "options": ["Richard Starkey", "Ronald Stark", "Richard Sterling", "Reginald Star"], "correctAnswer": "Richard Starkey", "explanation": "Ringo Starr was born Richard Starkey." },
+        { "question": "Which was the last album The Beatles recorded together?", "options": ["Abbey Road", "Let It Be", "The White Album", "Revolver"], "correctAnswer": "Abbey Road", "explanation": "Abbey Road was the final album they recorded together, though Let It Be was released later." }
+      ]
+    },
+    {
+      "id": "pink-floyd",
+      "name": "Pink Floyd",
+      "genre": "Progressive Rock",
+      "icon": "fa-record-vinyl",
+      "songs": [
+        { "title": "Wish You Were Here", "fact": "A tribute to founding member Syd Barrett, who left the band early." },
+        { "title": "Another Brick in the Wall, Part 2", "fact": "Featuring a school children's choir, it became the band's only UK number-one single." }
+      ],
+      "trivia": [
+        { "question": "Who was Pink Floyd's original frontman, who left early amid mental-health struggles?", "options": ["Syd Barrett", "Roger Waters", "David Gilmour", "Nick Mason"], "correctAnswer": "Syd Barrett", "explanation": "Syd Barrett led the early band before departing in 1968." },
+        { "question": "What image famously appears on the cover of 'The Dark Side of the Moon'?", "options": ["A prism refracting light", "A floating pig", "A burning man", "A brick wall"], "correctAnswer": "A prism refracting light", "explanation": "The cover shows a triangular prism splitting white light into a spectrum." },
+        { "question": "What animal floats over Battersea Power Station on the cover of 'Animals'?", "options": ["A pig", "A cow", "A sheep", "A dog"], "correctAnswer": "A pig", "explanation": "An inflatable pig floats above the power station on the 1977 album cover." }
+      ]
+    },
+    {
+      "id": "michael-jackson",
+      "name": "Michael Jackson",
+      "genre": "Pop / R&B",
+      "icon": "fa-star",
+      "songs": [
+        { "title": "Billie Jean", "fact": "He debuted the moonwalk performing this on the Motown 25 TV special in 1983." },
+        { "title": "Thriller", "fact": "Its 14-minute John Landis-directed video reshaped what a music video could be." }
+      ],
+      "trivia": [
+        { "question": "What is Michael Jackson's best-selling album, also the best-selling album of all time?", "options": ["Thriller", "Bad", "Off the Wall", "Dangerous"], "correctAnswer": "Thriller", "explanation": "Thriller (1982) is widely recognized as the best-selling album of all time." },
+        { "question": "Which family group did Michael Jackson perform in before going solo?", "options": ["The Jackson 5", "The Temptations", "The Supremes", "New Edition"], "correctAnswer": "The Jackson 5", "explanation": "He rose to fame as the youngest lead of the Jackson 5." },
+        { "question": "By what nickname was Michael Jackson widely known?", "options": ["King of Pop", "The Boss", "The Voice", "Mr. Soul"], "correctAnswer": "King of Pop", "explanation": "He was popularly crowned the 'King of Pop'." }
+      ]
+    },
+    {
+      "id": "beyonce",
+      "name": "Beyoncé",
+      "genre": "R&B / Pop",
+      "icon": "fa-gem",
+      "songs": [
+        { "title": "Single Ladies (Put a Ring on It)", "fact": "Its stark, one-shot-style choreography became a global cultural phenomenon." },
+        { "title": "Halo", "fact": "A soaring ballad from her album I Am... Sasha Fierce." }
+      ],
+      "trivia": [
+        { "question": "As lead singer of which group did Beyoncé first rise to fame?", "options": ["Destiny's Child", "TLC", "En Vogue", "The Pussycat Dolls"], "correctAnswer": "Destiny's Child", "explanation": "She fronted Destiny's Child before her solo career." },
+        { "question": "What is Beyoncé's fan base called?", "options": ["The BeyHive", "The Navy", "Little Monsters", "Swifties"], "correctAnswer": "The BeyHive", "explanation": "Her devoted fans are known as the BeyHive." },
+        { "question": "What was Beyoncé's onstage alter ego?", "options": ["Sasha Fierce", "Roman", "Yoncé Prime", "Queen B2"], "correctAnswer": "Sasha Fierce", "explanation": "She performed as the alter ego 'Sasha Fierce'." }
+      ]
+    },
+    {
+      "id": "daft-punk",
+      "name": "Daft Punk",
+      "genre": "Electronic / French House",
+      "icon": "fa-robot",
+      "songs": [
+        { "title": "Get Lucky", "fact": "A 2013 collaboration with Pharrell Williams and Nile Rodgers that won a Grammy for Record of the Year." },
+        { "title": "One More Time", "fact": "Featuring Romanthony's vocals, it anchored the album Discovery." }
+      ],
+      "trivia": [
+        { "question": "Which country is Daft Punk from?", "options": ["France", "Germany", "United States", "Belgium"], "correctAnswer": "France", "explanation": "The duo formed in Paris, France." },
+        { "question": "Daft Punk are famous for wearing what on stage?", "options": ["Robot helmets", "Animal masks", "Face paint", "Nothing unusual"], "correctAnswer": "Robot helmets", "explanation": "They performed as robots in signature helmets." },
+        { "question": "What did Daft Punk announce in 2021?", "options": ["Their breakup", "A world tour", "A film", "A new member"], "correctAnswer": "Their breakup", "explanation": "In 2021 they announced they were splitting up after 28 years." }
+      ]
+    },
+    {
+      "id": "radiohead",
+      "name": "Radiohead",
+      "genre": "Alternative / Art Rock",
+      "icon": "fa-brain",
+      "songs": [
+        { "title": "Creep", "fact": "Their 1992 breakthrough, though the band grew ambivalent about performing it." },
+        { "title": "Karma Police", "fact": "A standout from their acclaimed 1997 album OK Computer." }
+      ],
+      "trivia": [
+        { "question": "Who is Radiohead's lead singer?", "options": ["Thom Yorke", "Jonny Greenwood", "Colin Greenwood", "Ed O'Brien"], "correctAnswer": "Thom Yorke", "explanation": "Thom Yorke is the band's frontman." },
+        { "question": "Which acclaimed Radiohead album was released in 1997?", "options": ["OK Computer", "Kid A", "The Bends", "In Rainbows"], "correctAnswer": "OK Computer", "explanation": "OK Computer arrived in 1997 to wide acclaim." },
+        { "question": "How did Radiohead release 'In Rainbows' in 2007?", "options": ["Pay-what-you-want", "Free with a magazine", "Vinyl only", "Streaming exclusive"], "correctAnswer": "Pay-what-you-want", "explanation": "Fans could name their own price for the initial download." }
+      ]
+    },
+    {
+      "id": "nirvana",
+      "name": "Nirvana",
+      "genre": "Grunge / Alt-Rock",
+      "icon": "fa-bolt",
+      "songs": [
+        { "title": "Smells Like Teen Spirit", "fact": "The 1991 anthem that pushed grunge into the mainstream." },
+        { "title": "Come as You Are", "fact": "A signature track from the landmark album Nevermind." }
+      ],
+      "trivia": [
+        { "question": "Who was Nirvana's frontman?", "options": ["Kurt Cobain", "Dave Grohl", "Krist Novoselic", "Eddie Vedder"], "correctAnswer": "Kurt Cobain", "explanation": "Kurt Cobain was the singer and guitarist." },
+        { "question": "What appears on the cover of the album 'Nevermind'?", "options": ["A baby underwater", "A shattered guitar", "An empty pool", "A city skyline"], "correctAnswer": "A baby underwater", "explanation": "The cover shows a baby swimming toward a dollar bill on a hook." },
+        { "question": "Nirvana's drummer later founded which band?", "options": ["Foo Fighters", "Pearl Jam", "Soundgarden", "Green Day"], "correctAnswer": "Foo Fighters", "explanation": "Dave Grohl went on to form the Foo Fighters." }
+      ]
+    },
+    {
+      "id": "fleetwood-mac",
+      "name": "Fleetwood Mac",
+      "genre": "Rock / Pop",
+      "icon": "fa-compass",
+      "songs": [
+        { "title": "Go Your Own Way", "fact": "Written by Lindsey Buckingham amid the intra-band breakups that shaped Rumours." },
+        { "title": "Dreams", "fact": "Written by Stevie Nicks, it became the band's only US number-one single." }
+      ],
+      "trivia": [
+        { "question": "The band is named after Mick Fleetwood and which other member?", "options": ["John McVie", "Lindsey Buckingham", "Peter Green", "Christine McVie"], "correctAnswer": "John McVie", "explanation": "The name combines drummer Mick Fleetwood and bassist John McVie." },
+        { "question": "Which 1977 Fleetwood Mac album became one of the best-selling of all time?", "options": ["Rumours", "Tusk", "Tango in the Night", "Mirage"], "correctAnswer": "Rumours", "explanation": "Rumours (1977) is among the best-selling albums ever." },
+        { "question": "Which Stevie Nicks song is named after a Welsh witch?", "options": ["Rhiannon", "Gypsy", "Sara", "Landslide"], "correctAnswer": "Rhiannon", "explanation": "'Rhiannon' draws on Welsh mythology." }
+      ]
+    },
+    {
+      "id": "led-zeppelin",
+      "name": "Led Zeppelin",
+      "genre": "Hard Rock",
+      "icon": "fa-plane",
+      "songs": [
+        { "title": "Stairway to Heaven", "fact": "An eight-minute epic from their untitled fourth album, famously never issued as a single." },
+        { "title": "Whole Lotta Love", "fact": "Built on one of Jimmy Page's heaviest riffs." }
+      ],
+      "trivia": [
+        { "question": "Who was Led Zeppelin's guitarist?", "options": ["Jimmy Page", "Robert Plant", "John Paul Jones", "Eric Clapton"], "correctAnswer": "Jimmy Page", "explanation": "Jimmy Page founded the band and played lead guitar." },
+        { "question": "'Stairway to Heaven' appears on which album?", "options": ["Led Zeppelin IV", "Led Zeppelin II", "Houses of the Holy", "Physical Graffiti"], "correctAnswer": "Led Zeppelin IV", "explanation": "It is the centerpiece of their untitled fourth album (1971)." },
+        { "question": "The band disbanded in 1980 after the death of which member?", "options": ["John Bonham", "Robert Plant", "Jimmy Page", "John Paul Jones"], "correctAnswer": "John Bonham", "explanation": "They broke up following drummer John Bonham's death." }
+      ]
+    },
+    {
+      "id": "the-rolling-stones",
+      "name": "The Rolling Stones",
+      "genre": "Rock",
+      "icon": "fa-tongue",
+      "songs": [
+        { "title": "(I Can't Get No) Satisfaction", "fact": "Keith Richards said he came up with its famous riff in his sleep." },
+        { "title": "Paint It Black", "fact": "Notable for the sitar line played by Brian Jones." }
+      ],
+      "trivia": [
+        { "question": "Who is the lead singer of The Rolling Stones?", "options": ["Mick Jagger", "Keith Richards", "Charlie Watts", "Ronnie Wood"], "correctAnswer": "Mick Jagger", "explanation": "Mick Jagger has fronted the band since 1962." },
+        { "question": "In which city did The Rolling Stones form?", "options": ["London", "Manchester", "Liverpool", "Birmingham"], "correctAnswer": "London", "explanation": "The band formed in London in 1962." },
+        { "question": "What is the band's famous logo?", "options": ["Tongue and lips", "A red star", "A skull", "A lightning bolt"], "correctAnswer": "Tongue and lips", "explanation": "Their emblem is the 'Tongue and Lips' design." }
+      ]
+    },
+    {
+      "id": "elton-john",
+      "name": "Elton John",
+      "genre": "Pop / Rock",
+      "icon": "fa-glasses",
+      "songs": [
+        { "title": "Rocket Man", "fact": "Co-written with his longtime lyricist Bernie Taupin." },
+        { "title": "Your Song", "fact": "An early signature ballad from 1970." }
+      ],
+      "trivia": [
+        { "question": "What is Elton John's birth name?", "options": ["Reginald Dwight", "Elton Hercules", "Reginald John", "Edward Dwight"], "correctAnswer": "Reginald Dwight", "explanation": "He was born Reginald Kenneth Dwight." },
+        { "question": "Who is Elton John's longtime lyricist?", "options": ["Bernie Taupin", "Tim Rice", "Gary Osborne", "Davey Johnstone"], "correctAnswer": "Bernie Taupin", "explanation": "Bernie Taupin has written lyrics for Elton for decades." },
+        { "question": "What was the title of the 2019 Elton John biopic?", "options": ["Rocketman", "Your Song", "Goodbye Yellow Brick Road", "The Bitch Is Back"], "correctAnswer": "Rocketman", "explanation": "The musical biopic was titled Rocketman." }
+      ]
+    },
+    {
+      "id": "david-bowie",
+      "name": "David Bowie",
+      "genre": "Art Rock / Glam",
+      "icon": "fa-bolt",
+      "songs": [
+        { "title": "Space Oddity", "fact": "Introduces the character Major Tom and was released around the 1969 Moon landing." },
+        { "title": "Heroes", "fact": "Recorded in Berlin in 1977 during his celebrated 'Berlin era'." }
+      ],
+      "trivia": [
+        { "question": "What was David Bowie's 1972 stage persona?", "options": ["Ziggy Stardust", "The Thin White Duke", "Aladdin Sane", "Major Tom"], "correctAnswer": "Ziggy Stardust", "explanation": "Ziggy Stardust was his flamboyant alien rock-star alter ego." },
+        { "question": "What was David Bowie's birth name?", "options": ["David Jones", "David Bowman", "David Stardust", "David Robertson"], "correctAnswer": "David Jones", "explanation": "He was born David Robert Jones and changed his surname to avoid confusion with another performer." },
+        { "question": "Which recurring Bowie character first appears in 'Space Oddity'?", "options": ["Major Tom", "Ziggy", "The Duke", "Halloween Jack"], "correctAnswer": "Major Tom", "explanation": "Major Tom debuts in 'Space Oddity' and returns in later songs." }
+      ]
+    },
+    {
+      "id": "adele",
+      "name": "Adele",
+      "genre": "Pop / Soul",
+      "icon": "fa-microphone-lines",
+      "songs": [
+        { "title": "Rolling in the Deep", "fact": "The lead single from her blockbuster album 21." },
+        { "title": "Someone Like You", "fact": "A stark piano ballad from 21." }
+      ],
+      "trivia": [
+        { "question": "How does Adele title her studio albums?", "options": ["After her age", "After cities", "After seasons", "After numbers at random"], "correctAnswer": "After her age", "explanation": "Her albums are named 19, 21, 25, and 30 for her age at the time." },
+        { "question": "Which country is Adele from?", "options": ["England", "Ireland", "United States", "Australia"], "correctAnswer": "England", "explanation": "Adele was born and raised in London, England." },
+        { "question": "'Rolling in the Deep' comes from which album?", "options": ["21", "19", "25", "30"], "correctAnswer": "21", "explanation": "It was the breakout single from 21 (2011)." }
+      ]
+    },
+    {
+      "id": "ed-sheeran",
+      "name": "Ed Sheeran",
+      "genre": "Pop / Folk-Pop",
+      "icon": "fa-guitar",
+      "songs": [
+        { "title": "Shape of You", "fact": "One of the most-streamed songs ever, from the album ÷ (Divide)." },
+        { "title": "Perfect", "fact": "A wedding-favorite ballad, also from ÷ (Divide)." }
+      ],
+      "trivia": [
+        { "question": "Ed Sheeran titles his albums with what kind of symbols?", "options": ["Mathematical symbols", "Roman numerals", "Zodiac signs", "Colors"], "correctAnswer": "Mathematical symbols", "explanation": "His albums are +, ×, ÷, =, and −." },
+        { "question": "Which country is Ed Sheeran from?", "options": ["England", "Ireland", "Scotland", "Canada"], "correctAnswer": "England", "explanation": "He was raised in Framlingham, England." },
+        { "question": "'Shape of You' is from which album?", "options": ["÷ (Divide)", "× (Multiply)", "+ (Plus)", "= (Equals)"], "correctAnswer": "÷ (Divide)", "explanation": "It was a lead single from ÷ (2017)." }
+      ]
+    },
+    {
+      "id": "bruno-mars",
+      "name": "Bruno Mars",
+      "genre": "Pop / Funk / R&B",
+      "icon": "fa-hat-cowboy",
+      "songs": [
+        { "title": "Uptown Funk", "fact": "Credited to Mark Ronson featuring Bruno Mars, it dominated the charts in 2015." },
+        { "title": "Just the Way You Are", "fact": "His debut solo single and first number-one hit." }
+      ],
+      "trivia": [
+        { "question": "What is Bruno Mars's birth name?", "options": ["Peter Gene Hernandez", "Bruno Hernandez", "Peter Mars", "Bruno Gene"], "correctAnswer": "Peter Gene Hernandez", "explanation": "He was born Peter Gene Hernandez and nicknamed 'Bruno' as a child." },
+        { "question": "'Uptown Funk' was a collaboration with which producer?", "options": ["Mark Ronson", "Pharrell Williams", "Dr. Luke", "Max Martin"], "correctAnswer": "Mark Ronson", "explanation": "The song is credited to Mark Ronson featuring Bruno Mars." },
+        { "question": "What is the name of Bruno Mars's funk duo with Anderson .Paak?", "options": ["Silk Sonic", "The Hooligans", "Smooth Criminals", "Velvet Sky"], "correctAnswer": "Silk Sonic", "explanation": "The pair released music as Silk Sonic." }
+      ]
+    },
+    {
+      "id": "the-weeknd",
+      "name": "The Weeknd",
+      "genre": "R&B / Synth-Pop",
+      "icon": "fa-fire",
+      "songs": [
+        { "title": "Blinding Lights", "fact": "The synth-driven hit set a record for the most weeks on the Billboard Hot 100." },
+        { "title": "Starboy", "fact": "A chart-topping collaboration with Daft Punk." }
+      ],
+      "trivia": [
+        { "question": "What is The Weeknd's real name?", "options": ["Abel Tesfaye", "Aubrey Graham", "Abel Makkonen", "Adam Feeney"], "correctAnswer": "Abel Tesfaye", "explanation": "He was born Abel Makkonen Tesfaye; his stage name is The Weeknd." },
+        { "question": "'Blinding Lights' appears on which album?", "options": ["After Hours", "Starboy", "Dawn FM", "Beauty Behind the Madness"], "correctAnswer": "After Hours", "explanation": "It was the standout single from After Hours (2020)." },
+        { "question": "Which country is The Weeknd from?", "options": ["Canada", "United States", "United Kingdom", "Ethiopia"], "correctAnswer": "Canada", "explanation": "He grew up in Toronto, Canada." }
+      ]
+    },
+    {
+      "id": "billie-eilish",
+      "name": "Billie Eilish",
+      "genre": "Alt-Pop / Electropop",
+      "icon": "fa-moon",
+      "songs": [
+        { "title": "bad guy", "fact": "Reached number one and helped her sweep the 2020 Grammys." },
+        { "title": "No Time to Die", "fact": "Her theme for the 2021 James Bond film won an Academy Award." }
+      ],
+      "trivia": [
+        { "question": "Who is Billie Eilish's producer and songwriting brother?", "options": ["Finneas", "Phineas Cook", "Oliver Tree", "Blake Slatkin"], "correctAnswer": "Finneas", "explanation": "Her brother Finneas O'Connell co-writes and produces her music." },
+        { "question": "For which James Bond film did Billie Eilish record the theme?", "options": ["No Time to Die", "Skyfall", "Spectre", "Casino Royale"], "correctAnswer": "No Time to Die", "explanation": "Her Bond theme 'No Time to Die' won an Oscar and a Grammy." },
+        { "question": "At the 2020 Grammys, Billie Eilish swept which categories?", "options": ["The 'big four' general categories", "Only Best New Artist", "Only rock categories", "None"], "correctAnswer": "The 'big four' general categories", "explanation": "She won Record, Album, Song of the Year, and Best New Artist in one night." }
+      ]
+    },
+    {
+      "id": "kendrick-lamar",
+      "name": "Kendrick Lamar",
+      "genre": "Hip-Hop",
+      "icon": "fa-microphone",
+      "songs": [
+        { "title": "HUMBLE.", "fact": "A number-one hit from DAMN., the album that won a Pulitzer Prize." },
+        { "title": "Alright", "fact": "From To Pimp a Butterfly, it became a widely used protest anthem." }
+      ],
+      "trivia": [
+        { "question": "Which California city is Kendrick Lamar from?", "options": ["Compton", "Oakland", "Long Beach", "Inglewood"], "correctAnswer": "Compton", "explanation": "Kendrick Lamar hails from Compton, California." },
+        { "question": "Kendrick won a Pulitzer Prize for Music for which album?", "options": ["DAMN.", "To Pimp a Butterfly", "good kid, m.A.A.d city", "Mr. Morale & the Big Steppers"], "correctAnswer": "DAMN.", "explanation": "DAMN. (2017) won the 2018 Pulitzer Prize for Music, a first for a non-classical/jazz work." },
+        { "question": "Which acclaimed Kendrick album was released in 2015?", "options": ["To Pimp a Butterfly", "DAMN.", "good kid, m.A.A.d city", "Section.80"], "correctAnswer": "To Pimp a Butterfly", "explanation": "To Pimp a Butterfly arrived in 2015 to major acclaim." }
+      ]
+    },
+    {
+      "id": "eminem",
+      "name": "Eminem",
+      "genre": "Hip-Hop",
+      "icon": "fa-pen-nib",
+      "songs": [
+        { "title": "Lose Yourself", "fact": "Written for the film 8 Mile, it won an Academy Award for Best Original Song." },
+        { "title": "Stan", "fact": "Its obsessive-fan narrative helped popularize 'stan' as an everyday word." }
+      ],
+      "trivia": [
+        { "question": "What is Eminem's real name?", "options": ["Marshall Mathers", "Marshall Bruce", "Martin Mathers", "Michael Mathers"], "correctAnswer": "Marshall Mathers", "explanation": "He was born Marshall Bruce Mathers III." },
+        { "question": "What is Eminem's best-known alter ego?", "options": ["Slim Shady", "Rabbit", "B-Rabbit", "Ken Kaniff"], "correctAnswer": "Slim Shady", "explanation": "His provocative alter ego is Slim Shady." },
+        { "question": "Which city is Eminem from?", "options": ["Detroit", "Chicago", "New York", "Cleveland"], "correctAnswer": "Detroit", "explanation": "He is closely associated with Detroit, Michigan." }
+      ]
+    },
+    {
+      "id": "red-hot-chili-peppers",
+      "name": "Red Hot Chili Peppers",
+      "genre": "Funk Rock / Alt-Rock",
+      "icon": "fa-pepper-hot",
+      "songs": [
+        { "title": "Under the Bridge", "fact": "A confessional ballad about Anthony Kiedis's loneliness in Los Angeles." },
+        { "title": "Californication", "fact": "The title track of their acclaimed 1999 album." }
+      ],
+      "trivia": [
+        { "question": "Who is the lead singer of the Red Hot Chili Peppers?", "options": ["Anthony Kiedis", "Flea", "John Frusciante", "Chad Smith"], "correctAnswer": "Anthony Kiedis", "explanation": "Anthony Kiedis has fronted the band since its founding." },
+        { "question": "What is the stage name of the band's slap-bass virtuoso?", "options": ["Flea", "Slash", "Sting", "Bootsy"], "correctAnswer": "Flea", "explanation": "Bassist Michael Balzary goes by 'Flea'." },
+        { "question": "In which city did the Red Hot Chili Peppers form?", "options": ["Los Angeles", "San Francisco", "Seattle", "New York"], "correctAnswer": "Los Angeles", "explanation": "The band formed in Los Angeles in 1983." }
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "U2",
+      "genre": "Rock",
+      "icon": "fa-compact-disc",
+      "songs": [
+        { "title": "With or Without You", "fact": "A signature ballad from the album The Joshua Tree." },
+        { "title": "One", "fact": "A beloved track from the 1991 album Achtung Baby." }
+      ],
+      "trivia": [
+        { "question": "Who is the lead singer of U2?", "options": ["Bono", "The Edge", "Adam Clayton", "Larry Mullen Jr."], "correctAnswer": "Bono", "explanation": "Bono (Paul Hewson) is the band's frontman." },
+        { "question": "Which country is U2 from?", "options": ["Ireland", "England", "Scotland", "United States"], "correctAnswer": "Ireland", "explanation": "U2 formed in Dublin, Ireland, in 1976." },
+        { "question": "What is the stage name of U2's guitarist?", "options": ["The Edge", "Slash", "The Hook", "Bono"], "correctAnswer": "The Edge", "explanation": "Guitarist David Evans is known as 'The Edge'." }
+      ]
+    },
+    {
+      "id": "metallica",
+      "name": "Metallica",
+      "genre": "Heavy Metal / Thrash",
+      "icon": "fa-skull",
+      "songs": [
+        { "title": "Enter Sandman", "fact": "The opening track of the 1991 self-titled 'Black Album'." },
+        { "title": "Nothing Else Matters", "fact": "A ballad that broke from the band's thrash-metal roots." }
+      ],
+      "trivia": [
+        { "question": "Who is Metallica's frontman and rhythm guitarist?", "options": ["James Hetfield", "Lars Ulrich", "Kirk Hammett", "Robert Trujillo"], "correctAnswer": "James Hetfield", "explanation": "James Hetfield sings and plays rhythm guitar." },
+        { "question": "By what nickname is Metallica's 1991 self-titled album known?", "options": ["The Black Album", "The Grey Album", "Master of Puppets", "Kill 'Em All"], "correctAnswer": "The Black Album", "explanation": "The self-titled album is universally called 'The Black Album'." },
+        { "question": "In which city did Metallica form?", "options": ["Los Angeles", "San Francisco", "New York", "Seattle"], "correctAnswer": "Los Angeles", "explanation": "The band formed in Los Angeles in 1981." }
+      ]
+    },
+    {
+      "id": "acdc",
+      "name": "AC/DC",
+      "genre": "Hard Rock",
+      "icon": "fa-bolt",
+      "songs": [
+        { "title": "Back in Black", "fact": "The title track of the album dedicated to late singer Bon Scott." },
+        { "title": "Thunderstruck", "fact": "Opens with Angus Young's rapid-fire guitar tapping." }
+      ],
+      "trivia": [
+        { "question": "Which country is AC/DC from?", "options": ["Australia", "United Kingdom", "United States", "New Zealand"], "correctAnswer": "Australia", "explanation": "AC/DC formed in Sydney, Australia, in 1973." },
+        { "question": "Which guitarist performs in a schoolboy uniform?", "options": ["Angus Young", "Malcolm Young", "Brian Johnson", "Phil Rudd"], "correctAnswer": "Angus Young", "explanation": "Lead guitarist Angus Young is known for his schoolboy outfit." },
+        { "question": "The album 'Back in Black' was a tribute after the death of which singer?", "options": ["Bon Scott", "Brian Johnson", "Malcolm Young", "Dave Evans"], "correctAnswer": "Bon Scott", "explanation": "It honored original singer Bon Scott, with Brian Johnson taking over vocals." }
+      ]
+    },
+    {
+      "id": "abba",
+      "name": "ABBA",
+      "genre": "Pop / Disco",
+      "icon": "fa-star",
+      "songs": [
+        { "title": "Dancing Queen", "fact": "ABBA's only US number-one single, released in 1976." },
+        { "title": "Waterloo", "fact": "Won the 1974 Eurovision Song Contest and launched the group internationally." }
+      ],
+      "trivia": [
+        { "question": "Which country is ABBA from?", "options": ["Sweden", "Norway", "Denmark", "Finland"], "correctAnswer": "Sweden", "explanation": "ABBA formed in Stockholm, Sweden." },
+        { "question": "With which song did ABBA win the 1974 Eurovision Song Contest?", "options": ["Waterloo", "Mamma Mia", "SOS", "Ring Ring"], "correctAnswer": "Waterloo", "explanation": "'Waterloo' won Eurovision 1974 and made them stars." },
+        { "question": "The name 'ABBA' is formed from what?", "options": ["The members' first initials", "A Swedish word for four", "A record label", "A city name"], "correctAnswer": "The members' first initials", "explanation": "It comes from Agnetha, Björn, Benny, and Anni-Frid." }
+      ]
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "genre": "Pop / Funk / Rock",
+      "icon": "fa-music",
+      "songs": [
+        { "title": "Purple Rain", "fact": "The epic title track of his 1984 album and film." },
+        { "title": "When Doves Cry", "fact": "Famously built without a bass line." }
+      ],
+      "trivia": [
+        { "question": "Which 1984 Prince album shares its name with a film he starred in?", "options": ["Purple Rain", "1999", "Sign o' the Times", "Diamonds and Pearls"], "correctAnswer": "Purple Rain", "explanation": "Purple Rain was both an album and a feature film." },
+        { "question": "Which US city is Prince most associated with?", "options": ["Minneapolis", "Detroit", "Chicago", "Atlanta"], "correctAnswer": "Minneapolis", "explanation": "Prince built his career and studio (Paisley Park) near Minneapolis." },
+        { "question": "In the 1990s, Prince changed his stage name to what?", "options": ["An unpronounceable symbol", "The Purple One", "P. Nelson", "Camille"], "correctAnswer": "An unpronounceable symbol", "explanation": "He adopted a 'Love Symbol' and was called 'The Artist Formerly Known as Prince'." }
+      ]
+    },
+    {
+      "id": "bob-marley",
+      "name": "Bob Marley",
+      "genre": "Reggae",
+      "icon": "fa-leaf",
+      "songs": [
+        { "title": "No Woman, No Cry", "fact": "A beloved live version was recorded in London in 1975." },
+        { "title": "One Love", "fact": "The BBC named it Song of the Millennium in 1999." }
+      ],
+      "trivia": [
+        { "question": "Which musical genre is Bob Marley most associated with?", "options": ["Reggae", "Ska", "Calypso", "Soul"], "correctAnswer": "Reggae", "explanation": "Bob Marley became the global face of reggae." },
+        { "question": "Which country is Bob Marley from?", "options": ["Jamaica", "Trinidad", "Barbados", "Ethiopia"], "correctAnswer": "Jamaica", "explanation": "He was born in Nine Mile, Jamaica." },
+        { "question": "What was the name of Bob Marley's backing band?", "options": ["The Wailers", "The Maytals", "The Skatalites", "Black Uhuru"], "correctAnswer": "The Wailers", "explanation": "He performed with the Wailers." }
+      ]
+    },
+    {
+      "id": "stevie-wonder",
+      "name": "Stevie Wonder",
+      "genre": "Soul / Funk / R&B",
+      "icon": "fa-headphones",
+      "songs": [
+        { "title": "Superstition", "fact": "Driven by an unmistakable Hohner clavinet riff." },
+        { "title": "Isn't She Lovely", "fact": "Written to celebrate the birth of his daughter Aisha." }
+      ],
+      "trivia": [
+        { "question": "As a child prodigy, Stevie Wonder signed to which label?", "options": ["Motown", "Atlantic", "Stax", "Chess"], "correctAnswer": "Motown", "explanation": "He signed with Motown (Tamla) as a young boy." },
+        { "question": "Which acclaimed 1976 Stevie Wonder album is a double LP?", "options": ["Songs in the Key of Life", "Innervisions", "Talking Book", "Music of My Mind"], "correctAnswer": "Songs in the Key of Life", "explanation": "Songs in the Key of Life (1976) is his sprawling double-album masterpiece." },
+        { "question": "'Superstition' and 'Isn't She Lovely' are songs by whom?", "options": ["Stevie Wonder", "Marvin Gaye", "Al Green", "Ray Charles"], "correctAnswer": "Stevie Wonder", "explanation": "Both are Stevie Wonder classics." }
+      ]
+    }
+  ]
+}

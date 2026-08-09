@@ -1,0 +1,14 @@
+{
+  "name": "harmonic-heartbeats-bot",
+  "version": "1.0.0",
+  "description": "Provider-agnostic WhatsApp trivia bot for Harmonic Heartbeats. Zero runtime dependencies.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
