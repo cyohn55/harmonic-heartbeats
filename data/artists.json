@@ -451,6 +451,409 @@
         { "question": "Which acclaimed 1976 Stevie Wonder album is a double LP?", "options": ["Songs in the Key of Life", "Innervisions", "Talking Book", "Music of My Mind"], "correctAnswer": "Songs in the Key of Life", "explanation": "Songs in the Key of Life (1976) is his sprawling double-album masterpiece." },
         { "question": "'Superstition' and 'Isn't She Lovely' are songs by whom?", "options": ["Stevie Wonder", "Marvin Gaye", "Al Green", "Ray Charles"], "correctAnswer": "Stevie Wonder", "explanation": "Both are Stevie Wonder classics." }
       ]
+    },
+    {
+      "id": "highly-suspect",
+      "name": "Highly Suspect",
+      "genre": "Alternative Rock",
+      "icon": "fa-user-secret",
+      "songs": [
+        { "title": "My Name Is Human", "fact": "Reached number one on the Billboard Mainstream Rock chart in 2016." },
+        { "title": "Lydia", "fact": "A Grammy-nominated breakout single from their debut album Mister Asylum." }
+      ],
+      "trivia": [
+        { "question": "In which US state did Highly Suspect form?", "options": ["Massachusetts", "New York", "California", "Texas"], "correctAnswer": "Massachusetts", "explanation": "The band formed on Cape Cod, Massachusetts, before relocating to Brooklyn." },
+        { "question": "Highly Suspect's rhythm section is made up of a set of what?", "options": ["Twin brothers", "Cousins", "Childhood neighbors", "Session players"], "correctAnswer": "Twin brothers", "explanation": "Twins Rich and Ryan Meyer play bass and drums alongside frontman Johnny Stevens." },
+        { "question": "Which Highly Suspect song topped the Mainstream Rock chart in 2016?", "options": ["My Name Is Human", "Lydia", "16", "Little One"], "correctAnswer": "My Name Is Human", "explanation": "'My Name Is Human' became their first number-one rock radio hit." }
+      ]
+    },
+    {
+      "id": "oliver-tree",
+      "name": "Oliver Tree",
+      "genre": "Alt-Pop",
+      "icon": "fa-tree",
+      "songs": [
+        { "title": "Miss You", "fact": "His 2023 collaboration with Robin Schulz became a global streaming hit." },
+        { "title": "Life Goes On", "fact": "A single from his debut studio album Ugly Is Beautiful." }
+      ],
+      "trivia": [
+        { "question": "Oliver Tree is known for which signature look?", "options": ["A bowl cut and giant pants", "A cowboy hat", "Neon face paint", "A three-piece suit"], "correctAnswer": "A bowl cut and giant pants", "explanation": "His exaggerated persona features a bowl haircut and oversized trousers." },
+        { "question": "Which vehicle is central to Oliver Tree's on-stage persona?", "options": ["A scooter", "A monster truck", "A unicycle", "A hot-air balloon"], "correctAnswer": "A scooter", "explanation": "He is famous for stunts and bits involving a scooter." },
+        { "question": "What is the title of Oliver Tree's 2020 debut studio album?", "options": ["Ugly Is Beautiful", "Cowboy Tears", "Alien Boy", "Alone in a Crowd"], "correctAnswer": "Ugly Is Beautiful", "explanation": "Ugly Is Beautiful was his 2020 debut; Cowboy Tears followed in 2022." }
+      ]
+    },
+    {
+      "id": "lola-young",
+      "name": "Lola Young",
+      "genre": "Pop / Soul",
+      "icon": "fa-feather",
+      "songs": [
+        { "title": "Messy", "fact": "Her breakout single, which topped the UK singles chart." }
+      ],
+      "trivia": [
+        { "question": "Which country is Lola Young from?", "options": ["England", "United States", "Australia", "Ireland"], "correctAnswer": "England", "explanation": "Lola Young is a singer-songwriter from South London." },
+        { "question": "Which Lola Young single became a UK number-one hit?", "options": ["Messy", "Ugly", "Wasted", "Careless"], "correctAnswer": "Messy", "explanation": "'Messy' was her breakthrough chart-topping single." },
+        { "question": "Lola Young was a nominee for the Rising Star prize at which UK awards?", "options": ["The BRIT Awards", "The Grammy Awards", "The Mercury Prize", "The Ivor Novello Awards"], "correctAnswer": "The BRIT Awards", "explanation": "She was recognized in the BRIT Awards Rising Star category." }
+      ]
+    },
+    {
+      "id": "teddy-swims",
+      "name": "Teddy Swims",
+      "genre": "Soul / Pop",
+      "icon": "fa-water",
+      "songs": [
+        { "title": "Lose Control", "fact": "Reached number one on the Billboard Hot 100 after an exceptionally long chart run." },
+        { "title": "The Door", "fact": "A soulful single from his album I've Tried Everything but Therapy." }
+      ],
+      "trivia": [
+        { "question": "Which US city is Teddy Swims from?", "options": ["Atlanta", "Nashville", "Memphis", "New Orleans"], "correctAnswer": "Atlanta", "explanation": "Teddy Swims (Jaten Dimsdale) is from the Atlanta, Georgia, area." },
+        { "question": "Which 2023 Teddy Swims single reached number one on the Hot 100?", "options": ["Lose Control", "The Door", "Bed on Fire", "Simple Things"], "correctAnswer": "Lose Control", "explanation": "'Lose Control' became his signature chart-topping hit." },
+        { "question": "Teddy Swims first built his audience by posting what online?", "options": ["Cover songs on YouTube", "Dance clips on TikTok", "Comedy skits", "Gaming streams"], "correctAnswer": "Cover songs on YouTube", "explanation": "He grew a following covering songs across genres on YouTube." }
+      ]
+    },
+    {
+      "id": "foo-fighters",
+      "name": "Foo Fighters",
+      "genre": "Rock",
+      "icon": "fa-jet-fighter",
+      "songs": [
+        { "title": "Everlong", "fact": "One of the band's most beloved songs, from 1997's The Colour and the Shape." },
+        { "title": "Learn to Fly", "fact": "A hit single from There Is Nothing Left to Lose (1999)." }
+      ],
+      "trivia": [
+        { "question": "Who founded the Foo Fighters?", "options": ["Dave Grohl", "Taylor Hawkins", "Krist Novoselic", "Pat Smear"], "correctAnswer": "Dave Grohl", "explanation": "Dave Grohl started the Foo Fighters after his previous band ended." },
+        { "question": "Before the Foo Fighters, Dave Grohl was the drummer of which band?", "options": ["Nirvana", "Pearl Jam", "Soundgarden", "Queens of the Stone Age"], "correctAnswer": "Nirvana", "explanation": "Grohl drummed for Nirvana before forming the Foo Fighters." },
+        { "question": "Which longtime Foo Fighters drummer died in 2022?", "options": ["Taylor Hawkins", "Chad Smith", "Josh Freese", "Dave Lombardo"], "correctAnswer": "Taylor Hawkins", "explanation": "Drummer Taylor Hawkins died in 2022." }
+      ]
+    },
+    {
+      "id": "greta-van-fleet",
+      "name": "Greta Van Fleet",
+      "genre": "Hard Rock",
+      "icon": "fa-van-shuttle",
+      "songs": [
+        { "title": "Highway Tune", "fact": "Their debut single, which topped the US Mainstream Rock chart." },
+        { "title": "Safari Song", "fact": "An early single from their EP From the Fires." }
+      ],
+      "trivia": [
+        { "question": "Greta Van Fleet is most often compared to which classic rock band?", "options": ["Led Zeppelin", "The Beatles", "Pink Floyd", "The Who"], "correctAnswer": "Led Zeppelin", "explanation": "Their sound draws frequent comparisons to Led Zeppelin." },
+        { "question": "Greta Van Fleet is from which US state?", "options": ["Michigan", "California", "Tennessee", "Ohio"], "correctAnswer": "Michigan", "explanation": "The band formed in Frankenmuth, Michigan." },
+        { "question": "Three of the four members of Greta Van Fleet share what relationship?", "options": ["They are brothers", "They are cousins", "They are twins", "They are unrelated"], "correctAnswer": "They are brothers", "explanation": "The Kiszka brothers make up three-quarters of the band." }
+      ]
+    },
+    {
+      "id": "ren",
+      "name": "Ren",
+      "genre": "Alternative / Hip-Hop",
+      "icon": "fa-mask",
+      "songs": [
+        { "title": "Hi Ren", "fact": "A viral, genre-shifting performance depicting a battle with his inner demons." },
+        { "title": "The Hunger", "fact": "A dynamic single showcasing his blend of rap, folk, and rock." }
+      ],
+      "trivia": [
+        { "question": "Ren is a singer-songwriter from which country?", "options": ["Wales", "England", "Ireland", "Scotland"], "correctAnswer": "Wales", "explanation": "Ren (Ren Gill) is from Bangor, Wales." },
+        { "question": "Which Ren song went viral for its raw, multi-part performance?", "options": ["Hi Ren", "Money Game", "Genesis", "Screech"], "correctAnswer": "Hi Ren", "explanation": "'Hi Ren' became a viral sensation for its emotional intensity." },
+        { "question": "What is the title of Ren's 2023 album?", "options": ["Sick Boi", "Freckled Angels", "The Complex", "Chalk Outlines"], "correctAnswer": "Sick Boi", "explanation": "Sick Boi was released in 2023." }
+      ]
+    },
+    {
+      "id": "linkin-park",
+      "name": "Linkin Park",
+      "genre": "Nu Metal / Rock",
+      "icon": "fa-link",
+      "songs": [
+        { "title": "In the End", "fact": "A signature hit from their debut album Hybrid Theory." },
+        { "title": "Numb", "fact": "One of their most iconic songs, from Meteora (2003)." }
+      ],
+      "trivia": [
+        { "question": "Which Linkin Park co-vocalist died in 2017?", "options": ["Chester Bennington", "Mike Shinoda", "Brad Delson", "Joe Hahn"], "correctAnswer": "Chester Bennington", "explanation": "Lead singer Chester Bennington died in 2017." },
+        { "question": "What is the title of Linkin Park's best-selling debut album?", "options": ["Hybrid Theory", "Meteora", "Minutes to Midnight", "A Thousand Suns"], "correctAnswer": "Hybrid Theory", "explanation": "Hybrid Theory (2000) is one of the best-selling debut albums ever." },
+        { "question": "Who joined Linkin Park as a new co-vocalist in 2024?", "options": ["Emily Armstrong", "Hayley Williams", "Amy Lee", "Lzzy Hale"], "correctAnswer": "Emily Armstrong", "explanation": "Emily Armstrong joined for the 2024 album From Zero." }
+      ]
+    },
+    {
+      "id": "portugal-the-man",
+      "name": "Portugal. The Man",
+      "genre": "Alternative Rock",
+      "icon": "fa-mountain-sun",
+      "songs": [
+        { "title": "Feel It Still", "fact": "Won the 2018 Grammy for Best Pop Duo/Group Performance." },
+        { "title": "Live in the Moment", "fact": "A single from their 2017 album Woodstock." }
+      ],
+      "trivia": [
+        { "question": "Portugal. The Man originally formed in which US state?", "options": ["Alaska", "Oregon", "Washington", "Montana"], "correctAnswer": "Alaska", "explanation": "The band formed in Wasilla, Alaska, before basing themselves in Portland, Oregon." },
+        { "question": "Which Portugal. The Man song won a 2018 Grammy?", "options": ["Feel It Still", "Modern Jesus", "Live in the Moment", "Purple Yellow Red and Blue"], "correctAnswer": "Feel It Still", "explanation": "'Feel It Still' won Best Pop Duo/Group Performance." },
+        { "question": "'Feel It Still' interpolates the melody of which 1960s classic?", "options": ["Please Mr. Postman", "Twist and Shout", "My Girl", "Stand By Me"], "correctAnswer": "Please Mr. Postman", "explanation": "It borrows from The Marvelettes' 'Please Mr. Postman'." }
+      ]
+    },
+    {
+      "id": "royal-blood",
+      "name": "Royal Blood",
+      "genre": "Rock",
+      "icon": "fa-droplet",
+      "songs": [
+        { "title": "Figure It Out", "fact": "A riff-heavy single from their self-titled debut album." },
+        { "title": "Little Monster", "fact": "An early single that helped launch the band." }
+      ],
+      "trivia": [
+        { "question": "Royal Blood is a rock duo from which country?", "options": ["England", "United States", "Australia", "Canada"], "correctAnswer": "England", "explanation": "The duo formed in Brighton, England." },
+        { "question": "Royal Blood's huge sound is built mainly around which instrument (plus drums)?", "options": ["Bass guitar", "Piano", "Synthesizer", "Saxophone"], "correctAnswer": "Bass guitar", "explanation": "Mike Kerr's heavily-effected bass creates their signature wall of sound." },
+        { "question": "How many official members are in Royal Blood?", "options": ["Two", "Three", "Four", "Five"], "correctAnswer": "Two", "explanation": "Royal Blood is a two-piece: bass/vocals and drums." }
+      ]
+    },
+    {
+      "id": "cage-the-elephant",
+      "name": "Cage the Elephant",
+      "genre": "Alternative Rock",
+      "icon": "fa-paw",
+      "songs": [
+        { "title": "Ain't No Rest for the Wicked", "fact": "The band's breakout single from their 2008 debut album." },
+        { "title": "Cigarette Daydreams", "fact": "A fan-favorite from the album Melophobia." }
+      ],
+      "trivia": [
+        { "question": "Cage the Elephant is from which US state?", "options": ["Kentucky", "Tennessee", "Ohio", "Georgia"], "correctAnswer": "Kentucky", "explanation": "The band formed in Bowling Green, Kentucky." },
+        { "question": "Which Cage the Elephant song opens with 'There ain't no rest for the wicked'?", "options": ["Ain't No Rest for the Wicked", "Cigarette Daydreams", "Shake Me Down", "Trouble"], "correctAnswer": "Ain't No Rest for the Wicked", "explanation": "It was their breakout hit and remains their best-known song." },
+        { "question": "How many times has Cage the Elephant won the Grammy for Best Rock Album?", "options": ["Twice", "Once", "Three times", "Never"], "correctAnswer": "Twice", "explanation": "They won for Tell Me I'm Pretty and Social Cues." }
+      ]
+    },
+    {
+      "id": "the-blue-stones",
+      "name": "The Blue Stones",
+      "genre": "Blues Rock",
+      "icon": "fa-gem",
+      "songs": [
+        { "title": "Black Holes (Solid Ground)", "fact": "The duo's breakout blues-rock single." }
+      ],
+      "trivia": [
+        { "question": "The Blue Stones are a rock duo from which country?", "options": ["Canada", "United States", "England", "Australia"], "correctAnswer": "Canada", "explanation": "The duo is from Windsor, Ontario, Canada." },
+        { "question": "What is the title of The Blue Stones' breakout single?", "options": ["Black Holes (Solid Ground)", "Blue Sky", "Rolling Stone", "Midnight"], "correctAnswer": "Black Holes (Solid Ground)", "explanation": "'Black Holes (Solid Ground)' put the duo on the map." },
+        { "question": "How many members are in The Blue Stones?", "options": ["Two", "Three", "Four", "One"], "correctAnswer": "Two", "explanation": "They are a two-piece: guitar/vocals and drums." }
+      ]
+    },
+    {
+      "id": "the-black-keys",
+      "name": "The Black Keys",
+      "genre": "Blues Rock",
+      "icon": "fa-key",
+      "songs": [
+        { "title": "Lonely Boy", "fact": "Its one-take video of a man dancing became a viral sensation." },
+        { "title": "Tighten Up", "fact": "The band's breakthrough single from the album Brothers." }
+      ],
+      "trivia": [
+        { "question": "The Black Keys are a duo from which US city?", "options": ["Akron", "Detroit", "Nashville", "Chicago"], "correctAnswer": "Akron", "explanation": "The duo formed in Akron, Ohio." },
+        { "question": "Which Black Keys song has a viral one-shot dancing video?", "options": ["Lonely Boy", "Tighten Up", "Gold on the Ceiling", "Fever"], "correctAnswer": "Lonely Boy", "explanation": "The 'Lonely Boy' video features a man dancing in one continuous take." },
+        { "question": "Which 2011 Black Keys album includes 'Lonely Boy' and 'Gold on the Ceiling'?", "options": ["El Camino", "Brothers", "Turn Blue", "Attack & Release"], "correctAnswer": "El Camino", "explanation": "Both songs appear on El Camino (2011)." }
+      ]
+    },
+    {
+      "id": "rainbow-kitten-surprise",
+      "name": "Rainbow Kitten Surprise",
+      "genre": "Indie Rock",
+      "icon": "fa-rainbow",
+      "songs": [
+        { "title": "It's Called: Freefall", "fact": "A viral single from the album How to: Friend, Love, Freefall." },
+        { "title": "Cocaine Jesus", "fact": "A standout, harmony-rich track from the same album." }
+      ],
+      "trivia": [
+        { "question": "Rainbow Kitten Surprise formed in which US state?", "options": ["North Carolina", "California", "Colorado", "Oregon"], "correctAnswer": "North Carolina", "explanation": "The band formed in Boone, North Carolina." },
+        { "question": "Which Rainbow Kitten Surprise song became a viral hit about resisting a metaphorical devil?", "options": ["It's Called: Freefall", "Cocaine Jesus", "Hide", "Fever Pitch"], "correctAnswer": "It's Called: Freefall", "explanation": "'It's Called: Freefall' went viral for its 'devil' refrain." },
+        { "question": "Which genre best describes Rainbow Kitten Surprise?", "options": ["Indie rock", "Heavy metal", "Country", "EDM"], "correctAnswer": "Indie rock", "explanation": "They blend indie rock and folk with intricate harmonies." }
+      ]
+    },
+    {
+      "id": "green-day",
+      "name": "Green Day",
+      "genre": "Punk Rock",
+      "icon": "fa-leaf",
+      "songs": [
+        { "title": "Basket Case", "fact": "A breakout single from their 1994 major-label album Dookie." },
+        { "title": "Boulevard of Broken Dreams", "fact": "A Grammy-winning single from American Idiot." }
+      ],
+      "trivia": [
+        { "question": "Who is Green Day's lead singer?", "options": ["Billie Joe Armstrong", "Mike Dirnt", "Tré Cool", "Mark Hoppus"], "correctAnswer": "Billie Joe Armstrong", "explanation": "Billie Joe Armstrong sings and plays guitar." },
+        { "question": "Which 2004 Green Day album is a punk rock opera?", "options": ["American Idiot", "Dookie", "Nimrod", "Insomniac"], "correctAnswer": "American Idiot", "explanation": "American Idiot (2004) is a concept album/rock opera." },
+        { "question": "Which 1994 album was Green Day's major-label breakthrough?", "options": ["Dookie", "American Idiot", "Warning", "21st Century Breakdown"], "correctAnswer": "Dookie", "explanation": "Dookie propelled them to mainstream fame." }
+      ]
+    },
+    {
+      "id": "connor-price",
+      "name": "Connor Price",
+      "genre": "Hip-Hop",
+      "icon": "fa-tag",
+      "songs": [
+        { "title": "Spinnin", "fact": "A melodic rap hit that went viral on TikTok." },
+        { "title": "Rhonda", "fact": "A viral collaboration with the artist Killa." }
+      ],
+      "trivia": [
+        { "question": "Connor Price is a rapper from which country?", "options": ["Canada", "United States", "United Kingdom", "Australia"], "correctAnswer": "Canada", "explanation": "Connor Price is a Canadian rapper and singer." },
+        { "question": "On which platform did Connor Price build his massive following?", "options": ["TikTok", "LinkedIn", "Twitch", "Reddit"], "correctAnswer": "TikTok", "explanation": "His catchy, collaborative clips went viral on TikTok." },
+        { "question": "Before music, Connor Price worked as a child what?", "options": ["Actor", "Athlete", "Model", "Chef"], "correctAnswer": "Actor", "explanation": "He acted as a child, including a role in the film Cinderella Man." }
+      ]
+    },
+    {
+      "id": "jelly-roll",
+      "name": "Jelly Roll",
+      "genre": "Country / Rock / Rap",
+      "icon": "fa-guitar",
+      "songs": [
+        { "title": "Save Me", "fact": "A raw ballad about addiction, later re-released as a duet with Lainey Wilson." },
+        { "title": "Son of a Sinner", "fact": "His breakthrough country number-one single." }
+      ],
+      "trivia": [
+        { "question": "Which US city is Jelly Roll from?", "options": ["Nashville", "Memphis", "Atlanta", "Houston"], "correctAnswer": "Nashville", "explanation": "Jelly Roll (Jason DeFord) is from the Nashville, Tennessee, area." },
+        { "question": "Which Jelly Roll song was his breakthrough country number one?", "options": ["Son of a Sinner", "Save Me", "Need a Favor", "Halfway to Hell"], "correctAnswer": "Son of a Sinner", "explanation": "'Son of a Sinner' topped country airplay and broke him mainstream." },
+        { "question": "Jelly Roll's music blends country with which genre from his early career?", "options": ["Hip-hop / rap", "Jazz", "Classical", "Reggae"], "correctAnswer": "Hip-hop / rap", "explanation": "He started in rap before crossing into country and rock." }
+      ]
+    },
+    {
+      "id": "sabrina-carpenter",
+      "name": "Sabrina Carpenter",
+      "genre": "Pop",
+      "icon": "fa-mug-hot",
+      "songs": [
+        { "title": "Espresso", "fact": "Her 2024 global breakout and a defining song of the summer." },
+        { "title": "Please Please Please", "fact": "A number-one single from the album Short n' Sweet." }
+      ],
+      "trivia": [
+        { "question": "Which 2024 single became Sabrina Carpenter's global breakout?", "options": ["Espresso", "Nonsense", "Feather", "Vicious"], "correctAnswer": "Espresso", "explanation": "'Espresso' was her breakthrough smash in 2024." },
+        { "question": "Sabrina Carpenter starred as Maya in which Disney Channel series?", "options": ["Girl Meets World", "Austin & Ally", "Shake It Up", "Jessie"], "correctAnswer": "Girl Meets World", "explanation": "She played Maya Hart on Girl Meets World." },
+        { "question": "Which 2024 album features 'Espresso' and 'Please Please Please'?", "options": ["Short n' Sweet", "Emails I Can't Send", "Singular", "Evolution"], "correctAnswer": "Short n' Sweet", "explanation": "Both singles appear on Short n' Sweet." }
+      ]
+    },
+    {
+      "id": "halsey",
+      "name": "Halsey",
+      "genre": "Pop / Alt-Pop",
+      "icon": "fa-heart-crack",
+      "songs": [
+        { "title": "Without Me", "fact": "Her first solo number one on the Billboard Hot 100." },
+        { "title": "Closer", "fact": "A chart-topping 2016 collaboration with The Chainsmokers." }
+      ],
+      "trivia": [
+        { "question": "Halsey's stage name references a street and subway stop in which NYC borough?", "options": ["Brooklyn", "Manhattan", "Queens", "The Bronx"], "correctAnswer": "Brooklyn", "explanation": "'Halsey' nods to Halsey Street in Brooklyn and is an anagram of her name, Ashley." },
+        { "question": "Halsey was the featured vocalist on which 2016 Chainsmokers smash?", "options": ["Closer", "Roses", "Don't Let Me Down", "Paris"], "correctAnswer": "Closer", "explanation": "'Closer' became a massive number-one hit." },
+        { "question": "Which 2018 Halsey solo single reached number one?", "options": ["Without Me", "Bad at Love", "Now or Never", "Graveyard"], "correctAnswer": "Without Me", "explanation": "'Without Me' was her first solo Hot 100 number one." }
+      ]
+    },
+    {
+      "id": "dorothy",
+      "name": "Dorothy",
+      "genre": "Hard Rock / Blues Rock",
+      "icon": "fa-bolt",
+      "songs": [
+        { "title": "Raise Hell", "fact": "The band's breakout single, released in 2016." },
+        { "title": "Down to the Bottom", "fact": "An early, gritty blues-rock single." }
+      ],
+      "trivia": [
+        { "question": "The rock band Dorothy is based in which city?", "options": ["Los Angeles", "Nashville", "Austin", "New York"], "correctAnswer": "Los Angeles", "explanation": "Dorothy is a Los Angeles-based rock band." },
+        { "question": "Which genre best describes Dorothy?", "options": ["Hard / blues rock", "Country pop", "EDM", "Jazz"], "correctAnswer": "Hard / blues rock", "explanation": "The band plays gritty hard and blues rock." },
+        { "question": "The band Dorothy is named after whom?", "options": ["Its lead singer", "A film character", "A city", "The drummer"], "correctAnswer": "Its lead singer", "explanation": "The band is named for frontwoman Dorothy Martin." }
+      ]
+    },
+    {
+      "id": "the-pretty-reckless",
+      "name": "The Pretty Reckless",
+      "genre": "Hard Rock",
+      "icon": "fa-skull",
+      "songs": [
+        { "title": "Heaven Knows", "fact": "A number-one Mainstream Rock hit from the album Going to Hell." },
+        { "title": "Make Me Wanna Die", "fact": "An early single from their debut album Light Me Up." }
+      ],
+      "trivia": [
+        { "question": "Who fronts The Pretty Reckless?", "options": ["Taylor Momsen", "Hayley Williams", "Amy Lee", "Lzzy Hale"], "correctAnswer": "Taylor Momsen", "explanation": "Taylor Momsen is the band's singer and a former actress." },
+        { "question": "Taylor Momsen played Jenny Humphrey on which TV series?", "options": ["Gossip Girl", "The O.C.", "One Tree Hill", "Riverdale"], "correctAnswer": "Gossip Girl", "explanation": "She starred as Jenny Humphrey on Gossip Girl." },
+        { "question": "Which The Pretty Reckless song was a major rock radio number one?", "options": ["Heaven Knows", "Zombie", "Bring Me to Life", "Cherry Bomb"], "correctAnswer": "Heaven Knows", "explanation": "'Heaven Knows' topped the Mainstream Rock chart." }
+      ]
+    },
+    {
+      "id": "evanescence",
+      "name": "Evanescence",
+      "genre": "Rock / Metal",
+      "icon": "fa-ghost",
+      "songs": [
+        { "title": "Bring Me to Life", "fact": "Featured on the Daredevil soundtrack and won a Grammy." },
+        { "title": "My Immortal", "fact": "A haunting piano ballad from the album Fallen." }
+      ],
+      "trivia": [
+        { "question": "Who is the lead singer of Evanescence?", "options": ["Amy Lee", "Taylor Momsen", "Hayley Williams", "Lzzy Hale"], "correctAnswer": "Amy Lee", "explanation": "Amy Lee is the band's founder and vocalist." },
+        { "question": "Which 2003 Evanescence single features guest rap-rock vocals by Paul McCoy?", "options": ["Bring Me to Life", "My Immortal", "Going Under", "Lithium"], "correctAnswer": "Bring Me to Life", "explanation": "'Bring Me to Life' was their breakthrough hit." },
+        { "question": "What is the title of Evanescence's 2003 debut album?", "options": ["Fallen", "The Open Door", "Origin", "Synthesis"], "correctAnswer": "Fallen", "explanation": "Fallen launched them to global fame." }
+      ]
+    },
+    {
+      "id": "lana-del-rey",
+      "name": "Lana Del Rey",
+      "genre": "Alt-Pop / Americana",
+      "icon": "fa-clapperboard",
+      "songs": [
+        { "title": "Video Games", "fact": "Her breakout single, which established her cinematic sound." },
+        { "title": "Summertime Sadness", "fact": "A hit from Born to Die, boosted by a popular Cedric Gervais remix." }
+      ],
+      "trivia": [
+        { "question": "What is Lana Del Rey's birth name?", "options": ["Elizabeth Grant", "Lana Grant", "Elizabeth Del Rey", "Lizzy Woodward"], "correctAnswer": "Elizabeth Grant", "explanation": "She was born Elizabeth Woolridge Grant." },
+        { "question": "Which 2011 single was Lana Del Rey's viral breakthrough?", "options": ["Video Games", "Summertime Sadness", "Born to Die", "Young and Beautiful"], "correctAnswer": "Video Games", "explanation": "'Video Games' launched her career via a self-made video." },
+        { "question": "Lana Del Rey's aesthetic is often described as?", "options": ["Cinematic, melancholic Americana", "Bubblegum pop", "Thrash metal", "Afrobeat"], "correctAnswer": "Cinematic, melancholic Americana", "explanation": "Her music evokes a nostalgic, cinematic Americana mood." }
+      ]
+    },
+    {
+      "id": "amy-winehouse",
+      "name": "Amy Winehouse",
+      "genre": "Soul / R&B / Jazz",
+      "icon": "fa-record-vinyl",
+      "songs": [
+        { "title": "Rehab", "fact": "Won Record and Song of the Year at the 2008 Grammys." },
+        { "title": "Back to Black", "fact": "The title track of her celebrated second album." }
+      ],
+      "trivia": [
+        { "question": "Which country was Amy Winehouse from?", "options": ["England", "United States", "Ireland", "Jamaica"], "correctAnswer": "England", "explanation": "Amy Winehouse was from London, England." },
+        { "question": "What is the title of Amy Winehouse's acclaimed 2006 album?", "options": ["Back to Black", "Frank", "Lioness", "Rehab"], "correctAnswer": "Back to Black", "explanation": "Back to Black (2006) won her five Grammys." },
+        { "question": "Which signature single is about refusing to go to treatment?", "options": ["Rehab", "Valerie", "Tears Dry on Their Own", "You Know I'm No Good"], "correctAnswer": "Rehab", "explanation": "'Rehab' became her defining hit." }
+      ]
+    },
+    {
+      "id": "alice-in-chains",
+      "name": "Alice in Chains",
+      "genre": "Grunge / Metal",
+      "icon": "fa-box",
+      "songs": [
+        { "title": "Man in the Box", "fact": "An early breakthrough single from their debut album Facelift." },
+        { "title": "Rooster", "fact": "Jerry Cantrell wrote it about his father's experience in the Vietnam War." }
+      ],
+      "trivia": [
+        { "question": "Alice in Chains formed in which city, a hub of grunge?", "options": ["Seattle", "Los Angeles", "Chicago", "Boston"], "correctAnswer": "Seattle", "explanation": "The band formed in Seattle, Washington." },
+        { "question": "Which original Alice in Chains lead singer died in 2002?", "options": ["Layne Staley", "Chris Cornell", "Scott Weiland", "Kurt Cobain"], "correctAnswer": "Layne Staley", "explanation": "Original vocalist Layne Staley died in 2002." },
+        { "question": "Which early hit has the refrain about being 'buried in a box'?", "options": ["Man in the Box", "Rooster", "Down in a Hole", "No Excuses"], "correctAnswer": "Man in the Box", "explanation": "'Man in the Box' was an early breakthrough." }
+      ]
+    },
+    {
+      "id": "lily-allen",
+      "name": "Lily Allen",
+      "genre": "Pop",
+      "icon": "fa-face-smile",
+      "songs": [
+        { "title": "Smile", "fact": "Her cheeky number-one UK debut single." },
+        { "title": "The Fear", "fact": "A satirical hit from the album It's Not Me, It's You." }
+      ],
+      "trivia": [
+        { "question": "Lily Allen is a pop singer from which country?", "options": ["England", "United States", "Australia", "Canada"], "correctAnswer": "England", "explanation": "Lily Allen is from London, England." },
+        { "question": "Which 2006 single was Lily Allen's UK number-one breakout?", "options": ["Smile", "The Fear", "Not Fair", "LDN"], "correctAnswer": "Smile", "explanation": "'Smile' topped the UK chart in 2006." },
+        { "question": "What is the title of Lily Allen's 2006 debut album?", "options": ["Alright, Still", "It's Not Me, It's You", "Sheezus", "No Shame"], "correctAnswer": "Alright, Still", "explanation": "Alright, Still was her debut." }
+      ]
+    },
+    {
+      "id": "chappell-roan",
+      "name": "Chappell Roan",
+      "genre": "Pop",
+      "icon": "fa-horse",
+      "songs": [
+        { "title": "Good Luck, Babe!", "fact": "Her biggest hit, a synth-pop breakout of 2024." },
+        { "title": "Pink Pony Club", "fact": "A fan-favorite anthem from her debut album." }
+      ],
+      "trivia": [
+        { "question": "Chappell Roan is from which US state?", "options": ["Missouri", "California", "Texas", "Ohio"], "correctAnswer": "Missouri", "explanation": "She grew up in Willard, Missouri." },
+        { "question": "Which 2024 single features a spelled-out, cheerleader-style hook?", "options": ["Hot to Go!", "Pink Pony Club", "Good Luck, Babe!", "Red Wine Supernova"], "correctAnswer": "Hot to Go!", "explanation": "'Hot to Go!' has a letter-spelling dance hook." },
+        { "question": "Which award did Chappell Roan win at the 2025 Grammys?", "options": ["Best New Artist", "Album of the Year", "Record of the Year", "Song of the Year"], "correctAnswer": "Best New Artist", "explanation": "She won Best New Artist at the 2025 Grammys." }
+      ]
     }
   ]
 }
