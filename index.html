@@ -97,6 +97,25 @@
             return `https://www.youtube.com/results?search_query=${query}`;
         };
 
+        // Builds the embedded-player URL for the featured song. Instead of
+        // playing a single video and stopping, we attach a playlist so playback
+        // continues through more of the artist's songs. A curated official
+        // playlist (artist.youtubePlaylistId) is preferred when present;
+        // otherwise we seed a YouTube "Mix" radio from the featured video
+        // (list=RD<videoId>), which auto-continues with that artist's catalog.
+        const buildVideoEmbedUrl = (artist, song) => {
+            const base = 'https://www.youtube.com/embed';
+            const playerParams = 'rel=0&modestbranding=1&playsinline=1';
+
+            if (artist.youtubePlaylistId) {
+                return song.youtubeId
+                    ? `${base}/${song.youtubeId}?list=${artist.youtubePlaylistId}&${playerParams}`
+                    : `${base}/videoseries?list=${artist.youtubePlaylistId}&${playerParams}`;
+            }
+
+            return `${base}/${song.youtubeId}?list=RD${song.youtubeId}&${playerParams}`;
+        };
+
         // Deterministic "artist of the day" — mirrors the bot's dailyArtist.js so the
         // website and the emailed link always land on the same artist for a given date.
         const hashDateString = (value) => {
@@ -599,10 +618,10 @@
 
                         <div>
                             <p className="text-slate-300 text-sm font-semibold mb-2">🎬 {featuredSong.title}</p>
-                            {featuredSong.youtubeId ? (
+                            {(featuredSong.youtubeId || artist.youtubePlaylistId) ? (
                                 <div className="relative w-full rounded-xl overflow-hidden border border-slate-700" style={{ paddingBottom: '56.25%' }}>
-                                    <iframe className="absolute inset-0 w-full h-full" src={`https://www.youtube.com/embed/${featuredSong.youtubeId}`}
-                                        title={featuredSong.title} frameBorder="0" loading="lazy"
+                                    <iframe className="absolute inset-0 w-full h-full" src={buildVideoEmbedUrl(artist, featuredSong)}
+                                        title={`${featuredSong.title} — ${artist.name} playlist`} frameBorder="0" loading="lazy"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                 </div>
                             ) : (
@@ -610,6 +629,9 @@
                                     className="flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition-colors">
                                     <i className="fab fa-youtube"></i> Watch on YouTube
                                 </a>
+                            )}
+                            {(featuredSong.youtubeId || artist.youtubePlaylistId) && (
+                                <p className="text-slate-500 text-[11px] mt-2">▶ Keep listening — playback continues through more {artist.name} songs.</p>
                             )}
                             {featuredSong.fact && <p className="text-slate-400 text-xs mt-2 italic">{featuredSong.fact}</p>}
                         </div>
