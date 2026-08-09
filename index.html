@@ -121,6 +121,26 @@
             return `${base}/${song.youtubeId}?${playerParams}${adHocPlaylist}`;
         };
 
+        // Loads the YouTube IFrame Player API once and resolves when it's ready.
+        // The API lets us read which video is currently playing so the UI can
+        // keep the displayed song title in sync as the playlist advances.
+        let youTubeApiPromise = null;
+        const ensureYouTubeApi = () => {
+            if (window.YT && window.YT.Player) return Promise.resolve(window.YT);
+            if (youTubeApiPromise) return youTubeApiPromise;
+            youTubeApiPromise = new Promise((resolve) => {
+                const previousCallback = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = () => {
+                    if (typeof previousCallback === 'function') previousCallback();
+                    resolve(window.YT);
+                };
+                const script = document.createElement('script');
+                script.src = 'https://www.youtube.com/iframe_api';
+                document.head.appendChild(script);
+            });
+            return youTubeApiPromise;
+        };
+
         // Deterministic "artist of the day" — mirrors the bot's dailyArtist.js so the
         // website and the emailed link always land on the same artist for a given date.
         const hashDateString = (value) => {
@@ -602,6 +622,60 @@
             );
         };
 
+        // A YouTube playlist embed that reports the currently playing video (via
+        // the IFrame API) so the surrounding UI can keep the song title in sync
+        // as playback advances. If the API can't load, the plain embed still
+        // plays; only the live title updates are lost.
+        const PlaylistPlayer = ({ embedUrl, titleHint, onCurrentVideo }) => {
+            const iframeRef = useRef(null);
+            const playerRef = useRef(null);
+            const lastReportedRef = useRef('');
+
+            useEffect(() => {
+                let cancelled = false;
+
+                const reportCurrentVideo = () => {
+                    const player = playerRef.current;
+                    if (!player || typeof player.getVideoData !== 'function') return;
+                    const data = player.getVideoData();
+                    if (!data || !data.video_id) return;
+                    const signature = `${data.video_id}|${data.title || ''}`;
+                    if (signature === lastReportedRef.current) return;
+                    lastReportedRef.current = signature;
+                    onCurrentVideo({ videoId: data.video_id, title: data.title || '' });
+                };
+
+                ensureYouTubeApi().then((YT) => {
+                    if (cancelled || !iframeRef.current || !YT) return;
+                    playerRef.current = new YT.Player(iframeRef.current, {
+                        events: { onReady: reportCurrentVideo, onStateChange: reportCurrentVideo },
+                    });
+                });
+
+                return () => {
+                    cancelled = true;
+                    const player = playerRef.current;
+                    playerRef.current = null;
+                    lastReportedRef.current = '';
+                    if (player && typeof player.destroy === 'function') {
+                        try { player.destroy(); } catch (error) { /* iframe already unmounted */ }
+                    }
+                };
+            }, [embedUrl]);
+
+            // enablejsapi + origin are required for the IFrame API to control and
+            // read this player from the page's JavaScript.
+            const apiSrc = `${embedUrl}&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+
+            return (
+                <div className="relative w-full rounded-xl overflow-hidden border border-slate-700" style={{ paddingBottom: '56.25%' }}>
+                    <iframe ref={iframeRef} className="absolute inset-0 w-full h-full" src={apiSrc}
+                        title={titleHint} frameBorder="0" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
+            );
+        };
+
         // Renders the daily "video + trivia" experience for a single artist.
         // The Today tab passes no `artist` and falls back to the artist of the
         // day; selecting a band passes that band so it opens the same layout.
@@ -610,6 +684,17 @@
             const isDailyFeature = !selectedArtist;
             const featuredSong = artist.songs[0];
             const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+
+            // Tracks the video the embedded playlist is currently playing so the
+            // on-screen title follows along as playback moves through the songs.
+            const [currentVideo, setCurrentVideo] = useState(null);
+            useEffect(() => { setCurrentVideo(null); }, [artist.id]);
+
+            const hasVideo = Boolean(featuredSong.youtubeId || artist.youtubePlaylistId);
+            const onFeaturedSong = !currentVideo || currentVideo.videoId === featuredSong.youtubeId;
+            // Keep the curated clean title for the day's featured song; show the
+            // real YouTube title once the playlist advances to another video.
+            const displayedTitle = onFeaturedSong ? featuredSong.title : currentVideo.title;
 
             return (
                 <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
@@ -634,23 +719,24 @@
                         </div>
 
                         <div>
-                            <p className="text-slate-300 text-sm font-semibold mb-2">🎬 {featuredSong.title}</p>
-                            {(featuredSong.youtubeId || artist.youtubePlaylistId) ? (
-                                <div className="relative w-full rounded-xl overflow-hidden border border-slate-700" style={{ paddingBottom: '56.25%' }}>
-                                    <iframe className="absolute inset-0 w-full h-full" src={buildVideoEmbedUrl(artist, featuredSong)}
-                                        title={`${featuredSong.title} — ${artist.name} playlist`} frameBorder="0" loading="lazy"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                                </div>
+                            <p className="text-slate-300 text-sm font-semibold mb-2">🎬 {displayedTitle}</p>
+                            {hasVideo ? (
+                                <PlaylistPlayer
+                                    key={artist.id}
+                                    embedUrl={buildVideoEmbedUrl(artist, featuredSong)}
+                                    titleHint={`${artist.name} playlist`}
+                                    onCurrentVideo={setCurrentVideo}
+                                />
                             ) : (
                                 <a href={buildYouTubeSearchUrl(artist.name, featuredSong.title)} target="_blank" rel="noopener"
                                     className="flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition-colors">
                                     <i className="fab fa-youtube"></i> Watch on YouTube
                                 </a>
                             )}
-                            {(featuredSong.youtubeId || artist.youtubePlaylistId) && (
+                            {hasVideo && (
                                 <p className="text-slate-500 text-[11px] mt-2">▶ Keep listening — playback continues through more {artist.name} songs.</p>
                             )}
-                            {featuredSong.fact && <p className="text-slate-400 text-xs mt-2 italic">{featuredSong.fact}</p>}
+                            {onFeaturedSong && featuredSong.fact && <p className="text-slate-400 text-xs mt-2 italic">{featuredSong.fact}</p>}
                         </div>
 
                         {artist.bio && (
