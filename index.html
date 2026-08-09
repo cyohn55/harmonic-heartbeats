@@ -108,44 +108,10 @@
         const getDailyArtist = (artists, date = new Date()) =>
             artists[hashDateString(dailyDateKey(date)) % artists.length];
 
-        const generateExpandedArtworkDatabase = () => {
-            const artStyles = [
-                "Digital Painting", "Digital Oil Painting", "Abstract Acrylic", "Neo-Impressionism",
-                "Surrealist Digital", "Cyberpunk Synthwave", "Classic Oil on Canvas", "Digital Gouache",
-                "3D Generative Canvas", "Watercolor Spectrum", "Minimalist Geometry", "Neo-Classical Digital"
-            ];
-
-            const firstNames = ["Aria", "Julian", "Freja", "Kenzo", "Sienna", "Felix", "Nia", "Lucien", "Astrid", "Devon", "Talia", "Rory", "Callum", "Vesper", "Lila", "Kai", "Soren", "Esmé", "Micah", "Gemma", "Orion", "Selene", "Dante", "Mira", "Zane"];
-            const lastNames = ["Vance", "Mercer", "Kowalski", "Sterling", "O'Connor", "Zhao", "Alvarez", "Nielsen", "Dubois", "Fischer", "Rousseau", "Park", "Moreau", "Sinclair", "Winter", "Vargas", "Lindqvist", "Kaur", "Davenport", "Fontaine", "Sokolov", "Lefevre", "Novak", "Cruz", "Yamamoto"];
-            const titleNouns = ["Echo", "Symphony", "Cadence", "Pulse", "Spectrum", "Tide", "Whisper", "Constellation", "Mirage", "Aura", "Vibration", "Cascade", "Sonata", "Refraction", "Labyrinth", "Solstice", "Equinox", "Horizon", "Interlude", "Elysium", "Monolith", "Genesis", "Oasis", "Synthesis", "Harmony"];
-            const titleAdjectives = ["Ethereal", "Luminous", "Chromatic", "Silent", "Velvet", "Radiant", "Obscure", "Harmonic", "Infinite", "Kinetic", "Sublime", "Nebular", "Prismatic", "Celestial", "Serene", "Temporal", "Resonant", "Dynamic", "Fluid", "Astral", "Somber", "Opulent", "Vivid", "Ephemeral", "Gilded"];
-
-            const fullList = [];
-
-            for (let i = 1; i <= 210; i++) {
-                const fname = firstNames[(i * 3) % firstNames.length];
-                const lname = lastNames[(i * 7) % lastNames.length];
-                const adj = titleAdjectives[(i * 5) % titleAdjectives.length];
-                const noun = titleNouns[(i * 2) % titleNouns.length];
-                const style = artStyles[i % artStyles.length];
-                const year = i % 2 === 0 ? "2025" : "2026";
-
-                // Using high-reliability Picsum seed URLs tailored for digital art & paintings aesthetic
-                const imageUrl = `https://picsum.photos/seed/digital_painting_${i}/600/800`;
-
-                fullList.push({
-                    artist: `${fname} ${lname}`,
-                    title: `${adj} ${noun} No. ${i}`,
-                    year: year,
-                    imageUrl: imageUrl,
-                    bio: `Acclaimed digital fine artist and painter specializing in ${style.toLowerCase()} exploring music texture and light.`,
-                    style: style
-                });
-            }
-            return fullList;
-        };
-
-        const UPCOMING_ARTWORK_DATABASE = generateExpandedArtworkDatabase();
+        // Real public-domain artwork (paintings across movements) sourced from
+        // The Metropolitan Museum of Art's Open Access collection. The Gallery
+        // loads this dataset at runtime, replacing earlier stock placeholders.
+        const ARTWORK_DATASET_URL = './data/artworks.json';
 
         // Adapts a loaded artist record into the shape the chat quiz consumes,
         // attaching a real listen link to each song.
@@ -432,67 +398,100 @@
         };
 
         const ArtGallery = () => {
+            const [collection, setCollection] = useState(null);
+            const [loadError, setLoadError] = useState(null);
             const [selectedFilter, setSelectedFilter] = useState('All');
 
-            const stylesList = ['All', 'Digital Painting', 'Digital Oil Painting', 'Classic Oil on Canvas', 'Surrealist Digital', 'Abstract Acrylic', 'Cyberpunk Synthwave', 'Neo-Impressionism'];
+            // Load the curated real-artwork dataset once when the gallery opens.
+            useEffect(() => {
+                fetch(ARTWORK_DATASET_URL)
+                    .then((response) => {
+                        if (!response.ok) throw new Error(`Failed to load artworks (${response.status})`);
+                        return response.json();
+                    })
+                    .then((data) => setCollection(data))
+                    .catch((error) => setLoadError(error.message));
+            }, []);
+
+            if (loadError) return <LoadingScreen message={`Couldn't load the gallery: ${loadError}`} />;
+            if (collection === null) return <LoadingScreen message="Loading the gallery..." />;
+
+            const artworks = collection.artworks;
+
+            // Filter categories are derived from the data so they always match
+            // what's actually in the collection.
+            const categories = ['All', ...Array.from(new Set(artworks.map((art) => art.category)))];
 
             const filteredArtworks = selectedFilter === 'All'
-                ? UPCOMING_ARTWORK_DATABASE
-                : UPCOMING_ARTWORK_DATABASE.filter(art => art.style === selectedFilter);
+                ? artworks
+                : artworks.filter((art) => art.category === selectedFilter);
 
             return (
                 <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
                     <div className="p-4">
                         <div className="flex items-center justify-between mb-1">
-                            <h2 className="text-2xl font-extrabold text-white">Digital Gallery & Paintings</h2>
+                            <h2 className="text-2xl font-extrabold text-white">Fine Art Gallery</h2>
                             <span className="text-xs bg-brand-500/20 text-brand-400 px-2.5 py-1 rounded-full font-semibold">
                                 {filteredArtworks.length} Pieces
                             </span>
                         </div>
-                        <p className="text-slate-400 text-sm mb-4">Curated collection of digital fine art, oil paintings & acoustic canvases.</p>
+                        <p className="text-slate-400 text-sm mb-4">Public-domain masterworks from The Met's Open Access collection.</p>
 
                         <div className="flex gap-2 overflow-x-auto pb-3 mb-4 custom-scrollbar">
-                            {stylesList.map((style, idx) => (
+                            {categories.map((category, idx) => (
                                 <button
                                     key={idx}
-                                    onClick={() => setSelectedFilter(style)}
+                                    onClick={() => setSelectedFilter(category)}
                                     className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${
-                                        selectedFilter === style
+                                        selectedFilter === category
                                             ? 'bg-brand-600 text-white shadow-md shadow-brand-600/30'
                                             : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                                     }`}
                                 >
-                                    {style}
+                                    {category}
                                 </button>
                             ))}
                         </div>
 
                         <div className="columns-2 gap-3 space-y-3">
                             {filteredArtworks.map((art, idx) => (
-                                <div key={idx} className="break-inside-avoid relative group rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
+                                <a
+                                    key={idx}
+                                    href={art.sourceUrl || '#'}
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="break-inside-avoid relative group rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg block"
+                                >
                                     <div className="relative overflow-hidden bg-slate-900 min-h-[150px]">
                                         <img
                                             src={art.imageUrl}
-                                            alt={art.title}
+                                            alt={`${art.title} by ${art.artist}`}
                                             className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
                                             loading="lazy"
                                             onError={(e) => {
                                                 e.target.onerror = null;
-                                                e.target.src = "https://placehold.co/600x800/1e293b/f43f5e?text=Digital+Painting";
+                                                e.target.src = "https://placehold.co/600x800/1e293b/f43f5e?text=Artwork";
                                             }}
                                         />
                                         <div className="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-sm text-[9px] text-brand-300 px-2 py-0.5 rounded-md font-semibold border border-brand-500/30">
-                                            {art.style}
+                                            {art.category}
                                         </div>
                                     </div>
                                     <div className="p-3 bg-gradient-to-t from-slate-900 via-slate-900/90 to-slate-900/40">
                                         <h3 className="text-white text-xs font-bold truncate mb-0.5">{art.title}</h3>
                                         <p className="text-brand-400 text-[10px] truncate font-medium">{art.artist} • {art.year}</p>
-                                        <p className="text-slate-400 text-[9px] line-clamp-2 mt-1 opacity-80">{art.bio}</p>
+                                        {art.medium && <p className="text-slate-400 text-[9px] line-clamp-2 mt-1 opacity-80">{art.medium}</p>}
                                     </div>
-                                </div>
+                                </a>
                             ))}
                         </div>
+
+                        <p className="text-slate-500 text-[10px] text-center mt-6">
+                            Artworks courtesy of{' '}
+                            <a href={collection.sourceUrl} target="_blank" rel="noopener" className="text-brand-400 hover:text-brand-300 underline">
+                                The Metropolitan Museum of Art — Open Access
+                            </a>
+                        </p>
                     </div>
                 </div>
             );
@@ -614,6 +613,13 @@
                             )}
                             {featuredSong.fact && <p className="text-slate-400 text-xs mt-2 italic">{featuredSong.fact}</p>}
                         </div>
+
+                        {artist.bio && (
+                            <div>
+                                <h4 className="text-white font-bold mb-2">📖 About {artist.name}</h4>
+                                <p className="text-slate-300 text-sm leading-relaxed">{artist.bio}</p>
+                            </div>
+                        )}
 
                         <div>
                             <h4 className="text-white font-bold mb-3">🎵 Today's Trivia</h4>

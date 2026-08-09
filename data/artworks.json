@@ -1,0 +1,737 @@
+{
+  "source": "The Metropolitan Museum of Art — Open Access (CC0)",
+  "sourceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+  "count": 73,
+  "artworks": [
+    {
+      "artist": "Joachim Patinir",
+      "title": "The Penitence of Saint Jerome",
+      "year": "ca. 1515",
+      "medium": "Oil on wood",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT5549.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437261",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jacometto (Jacometto Veneziano)",
+      "title": "Portrait of a Woman, Possibly a Nun of San Secondo; (verso) Scene in Grisaille",
+      "year": "ca. 1485–95",
+      "medium": "Oil on wood; (verso: oil and gold on wood)",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/rl/web-large/DP221483.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/459027",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jacometto (Jacometto Veneziano)",
+      "title": "Portrait of Alvise Contarini(?); (verso) A Tethered Roebuck",
+      "year": "ca. 1485–95",
+      "medium": "Oil on wood; verso: oil and gold on wood",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/rl/web-large/DP221485.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/459028",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Théodore Rousseau",
+      "title": "The Forest in Winter at Sunset",
+      "year": "ca. 1846–67",
+      "medium": "Oil on canvas",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-31520-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/438816",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Paul Gauguin",
+      "title": "Ia Orana Maria (Hail Mary)",
+      "year": "1891",
+      "medium": "Oil on canvas",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1025.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/438821",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Hans Memling",
+      "title": "Young Woman with a Pink",
+      "year": "ca. 1485–90",
+      "medium": "Oil on wood",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-45396-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437059",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Salvator Rosa",
+      "title": "Self-Portrait",
+      "year": "ca. 1647",
+      "medium": "Oil on canvas",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP323414.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437508",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Dapeng Zhengkun (Taihō Shōkon)",
+      "title": "Bamboo in Snow",
+      "year": "1774",
+      "medium": "Pair of hanging scrolls; ink on silk",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP276881.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/49068",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Han Gan",
+      "title": "Night-Shining White",
+      "year": "ca. 750",
+      "medium": "Handscroll; ink on paper",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP153705.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/39901",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Musō Soseki",
+      "title": "”Abiding nowhere, the awakened mind arises”",
+      "year": "early to mid-14th century",
+      "medium": "Hanging scroll; ink on paper",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP-17101-002.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/816189",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "North Netherlandish (Bruges) Painter",
+      "title": "Christ Bearing the Cross",
+      "year": "",
+      "medium": "Oil on wood",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-20751-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437202",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Pierre-Auguste Cot",
+      "title": "The Storm",
+      "year": "1880",
+      "medium": "Oil on canvas",
+      "category": "Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT11964.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435997",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Vincent van Gogh",
+      "title": "L'Arlésienne: Madame Joseph-Michel Ginoux (Marie Julien, 1848–1911)",
+      "year": "1888–89",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1396.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436529",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Joos van Wassenhove",
+      "title": "The Adoration of the Magi",
+      "year": "1472–74",
+      "medium": "Distemper on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-16339-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436803",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Ambrosius Benson",
+      "title": "The Lamentation",
+      "year": "ca. 1520–25",
+      "medium": "Oil on canvas, transferred from wood",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/LC-1982_60_23.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435651",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Eugène Delacroix",
+      "title": "Christ Asleep during the Tempest",
+      "year": "ca. 1853",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14343-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436176",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Hans Memling",
+      "title": "Salvator Mundi",
+      "year": "1480–85",
+      "medium": "Oil on wood",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19586-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437061",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Johannes Vermeer",
+      "title": "A Maid Asleep",
+      "year": "ca. 1656–57",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP355525.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437878",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Gerard David",
+      "title": "The Nativity with Donors and Saints Jerome and Leonard",
+      "year": "ca. 1510–15",
+      "medium": "Oil on canvas, transferred from wood",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1476.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436099",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Gerard David",
+      "title": "The Crucifixion",
+      "year": "ca. 1495",
+      "medium": "Oil on wood",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17230-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436098",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Bartolomé Estebán Murillo",
+      "title": "Don Andrés de Andrade y la Cal",
+      "year": "ca. 1665–72",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-16333-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437173",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jules Bastien-Lepage",
+      "title": "Joan of Arc",
+      "year": "1879",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14201-049.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435621",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Charles Le Brun",
+      "title": "The Jabach Family",
+      "year": "ca. 1660",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP352819.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/626692",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Rosa Bonheur",
+      "title": "The Horse Fair",
+      "year": "1852–55",
+      "medium": "Oil on canvas",
+      "category": "Post-Impressionism",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23550-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435702",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Hans Memling",
+      "title": "Tommaso di Folco Portinari (1428–1501); Maria Portinari (Maria Maddalena Baroncelli, born 1456)",
+      "year": "ca. 1470",
+      "medium": "Oil on oak",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-44362-005.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437056",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Léon Bonnat",
+      "title": "An Egyptian Peasant Woman and Her Child",
+      "year": "1869–70",
+      "medium": "Oil on canvas",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT234058.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435711",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jacques Louis David",
+      "title": "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)",
+      "year": "1788",
+      "medium": "Oil on canvas",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19709-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436106",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jan van Eyck",
+      "title": "The Crucifixion; The Last Judgment",
+      "year": "ca. 1436–38",
+      "medium": "Oil on canvas, transferred from wood",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/LC-33_92ab-Primary_Temp.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436282",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Adriaen Brouwer",
+      "title": "The Smokers",
+      "year": "ca. 1636",
+      "medium": "Oil on wood",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-15904-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435807",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Fra Filippo Lippi",
+      "title": "Portrait of a Woman with a Man at a Casement",
+      "year": "ca. 1440",
+      "medium": "Tempera on wood",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP159891.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436896",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Georges de La Tour",
+      "title": "The Fortune-Teller",
+      "year": "probably 1630s",
+      "medium": "Oil on canvas",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14286-015.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436838",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Caravaggio (Michelangelo Merisi)",
+      "title": "The Musicians",
+      "year": "1597",
+      "medium": "Oil on canvas",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-687-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435844",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "title": "Philip IV (1605–1665), King of Spain",
+      "year": "probably 1624",
+      "medium": "Oil on canvas",
+      "category": "European Masters",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP239023.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437873",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Paul Cézanne",
+      "title": "Madame Cézanne (Hortense Fiquet, 1850–1922) in a Red Dress",
+      "year": "1888–90",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP320128.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435876",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Edouard Manet",
+      "title": "Boating",
+      "year": "1874",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-25466-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436947",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Edgar Degas",
+      "title": "Dancers Practicing at the Barre",
+      "year": "1877",
+      "medium": "Mixed media on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT840.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436139",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jacques Louis David",
+      "title": "The Death of Socrates",
+      "year": "1787",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-13139-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436105",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Henri Regnault",
+      "title": "Salome",
+      "year": "1870",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/ep16.95.R.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437384",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Domenico Guidobono",
+      "title": "An Allegory",
+      "year": "1710–20",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/EP542.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436607",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Lucas Cranach the Elder and Workshop",
+      "title": "Friedrich III (1463–1525), the Wise, Elector of Saxony",
+      "year": "1533",
+      "medium": "Oil on beech, with letterpress-printed paper labels",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP278968.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436043",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Li Gonglin",
+      "title": "The Classic of Filial Piety",
+      "year": "ca. 1085",
+      "medium": "Handscroll; ink and color on silk",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP151528.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/39895",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Paul Cézanne",
+      "title": "Madame Cézanne (Hortense Fiquet, 1850–1922) in the Conservatory",
+      "year": "1891",
+      "medium": "Oil on canvas",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP317780.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435875",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Herri met de Bles",
+      "title": "The Temptation of Saint Anthony",
+      "year": "ca. 1550–60",
+      "medium": "Oil on wood",
+      "category": "Modern Art",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP235224.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435678",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Sano di Pietro (Ansano di Pietro di Mencio)",
+      "title": "Saint Anthony the Abbot in the Wilderness",
+      "year": "ca. 1440",
+      "medium": "Tempera and gold on wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/rl/web-large/DP319194.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/458967",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Fra Carnevale (Bartolomeo di Giovanni Corradini)",
+      "title": "The Birth of the Virgin",
+      "year": "1467",
+      "medium": "Tempera and oil on wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP109484.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435848",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Netherlandish (Brussels) Painter",
+      "title": "The Fifteen Mysteries and the Virgin of the Rosary",
+      "year": "ca. 1515–20",
+      "medium": "Oil on wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT5754.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437216",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Botticelli (Alessandro di Mariano Filipepi)",
+      "title": "The Annunciation",
+      "year": "ca. 1490",
+      "medium": "Tempera and gold on wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/rl/web-large/DP267397.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/459016",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Eugène Delacroix",
+      "title": "George Sand's Garden at Nohant",
+      "year": "ca. 1842–43",
+      "medium": "Oil on canvas",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14092-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436177",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Eugène Delacroix",
+      "title": "The Natchez",
+      "year": "1823–24 and 1835",
+      "medium": "Oil on canvas",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14345-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436180",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Raffaellino del Garbo (also known as Raffaelle de' Capponi and Raffaelle de' Carli)",
+      "title": "Holy Family with an Angel",
+      "year": "ca. 1490",
+      "medium": "Tempera on canvas, transferred from wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-15089-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437368",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Botticelli (Alessandro di Mariano Filipepi)",
+      "title": "Madonna Adoring the Child",
+      "year": "ca. 1490–95",
+      "medium": "Tempera and gold on wood",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/rl/web-large/DP318246.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/459001",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Juan Bautista Martínez del Mazo",
+      "title": "Don Gaspar de Guzmán (1587–1645), Count-Duke of Olivares",
+      "year": "ca. 1636 or later",
+      "medium": "Oil on canvas",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14936-011.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437868",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Wang Mian",
+      "title": "Fragrant Snow at Broken Bridge",
+      "year": "14th century",
+      "medium": "Hanging scroll; ink on silk",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP258037.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/40080",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Chen Hongshou",
+      "title": "Landscapes, Figures, and Flowers",
+      "year": "dated 1618–22",
+      "medium": "Album of twelve leaves; ink and color on paper",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/1985_121_A_sf.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/44759",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "George Frederic Watts",
+      "title": "Ariadne",
+      "year": "1894",
+      "medium": "Oil on canvas",
+      "category": "American Paintings",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP169627.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437936",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "William Michael Harnett",
+      "title": "Still Life—Violin and Music",
+      "year": "1888",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ad/web-large/DT2046.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/10997",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Pieter Claesz",
+      "title": "Still Life with a Skull and a Writing Quill",
+      "year": "1628",
+      "medium": "Oil on wood",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145929.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435904",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Bartolomeo Cavarozzi",
+      "title": "Basket of Fruit",
+      "year": "ca. 1620",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19711-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/816624",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Paul Gauguin",
+      "title": "Still Life with Teapot and Fruit",
+      "year": "1896",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1027.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437999",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Otto Marseus van Schrieck",
+      "title": "Still Life with Poppy, Insects, and Reptiles",
+      "year": "ca. 1670",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145933.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436976",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "James Peale",
+      "title": "Still Life: Balsam Apple and Vegetables",
+      "year": "ca. 1820s",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ad/web-large/DT63.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/11734",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Georg Flegel",
+      "title": "Still Life",
+      "year": "probably ca. 1625–30",
+      "medium": "Oil on wood",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-25893-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436305",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Willem Claesz Heda",
+      "title": "Still Life with Oysters, a Silver Tazza, and Glassware",
+      "year": "1635",
+      "medium": "Oil on wood",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP120415.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/438376",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Jacques de Gheyn II",
+      "title": "Vanitas Still Life",
+      "year": "1603",
+      "medium": "Oil on wood",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143209.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436485",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Camille Pissarro",
+      "title": "Still Life with Apples and Pitcher",
+      "year": "1872",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-21958-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437317",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Henri Fantin-Latour",
+      "title": "Still Life with Flowers and Fruit",
+      "year": "1866",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1980.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436293",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Philippe Rousseau",
+      "title": "Still Life with Ham",
+      "year": "1870s",
+      "medium": "Oil on canvas",
+      "category": "Still Life",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT2130.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437513",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Antoine Le Nain",
+      "title": "A Peasant Family",
+      "year": "ca. 1640–48",
+      "medium": "Oil on copper",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP131218.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/438779",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Guido Reni",
+      "title": "Charity",
+      "year": "ca. 1630",
+      "medium": "Oil on canvas",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT10776.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/437422",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Giacomo Ceruti",
+      "title": "A Woman with a Dog",
+      "year": "1740s",
+      "medium": "Oil on canvas",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-29214-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435864",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Liberale da Verona",
+      "title": "Scene from a Novella",
+      "year": "",
+      "medium": "Tempera on wood",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT8310.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436885",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Camille Corot",
+      "title": "A Woman Reading",
+      "year": "1869 and 1870",
+      "medium": "Oil on canvas",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-16589-001.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/435991",
+      "credit": "The Metropolitan Museum of Art"
+    },
+    {
+      "artist": "Liberale da Verona",
+      "title": "The Chess Players",
+      "year": "ca. 1475",
+      "medium": "Tempera on wood",
+      "category": "Portraiture",
+      "imageUrl": "https://images.metmuseum.org/CRDImages/ep/web-large/DT226950.jpg",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/436884",
+      "credit": "The Metropolitan Museum of Art"
+    }
+  ]
+}
