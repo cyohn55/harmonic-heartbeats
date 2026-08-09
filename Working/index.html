@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Harmonic Heartbeats - Daily Music & Trivia SMS</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            900: '#881337',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 1.5s infinite',
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                        'slide-up': 'slideUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overscroll-behavior-y: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 9999px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.8); }
+        .phone-bg {
+            background-image: radial-gradient(circle, #334155 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: #0f172a;
+        }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="phone-bg text-slate-100 min-h-screen flex items-center justify-center p-0 md:p-4">
+    <div id="root" class="w-full h-full md:h-auto flex justify-center"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const EXPANDED_BANDS_DATASET = [
+            { id: '1', name: 'Coldplay', genre: 'Alternative Rock', category: 'Rock', active: true, icon: 'fa-cloud-moon' },
+            { id: '2', name: 'Taylor Swift', genre: 'Pop / Country', category: 'Pop', active: true, icon: 'fa-heart' },
+            { id: '3', name: 'Daft Punk', genre: 'Electronic / French House', category: 'Electronic', active: true, icon: 'fa-robot' },
+            { id: '4', name: 'Arctic Monkeys', genre: 'Indie Rock', category: 'Indie', active: true, icon: 'fa-guitar' },
+            { id: '5', name: 'Paramore', genre: 'Pop-Punk / Alt-Rock', category: 'Rock', active: true, icon: 'fa-bolt' },
+            { id: '6', name: 'Queen', genre: 'Classic Rock', category: 'Classic Rock', active: true, icon: 'fa-crown' },
+            { id: '7', name: 'Harry Styles', genre: 'Pop / Rock', category: 'Pop', active: true, icon: 'fa-star' },
+            { id: '8', name: 'Dua Lipa', genre: 'Nu-Disco / Pop', category: 'Pop', active: true, icon: 'fa-compact-disc' },
+            { id: '9', name: 'Billie Eilish', genre: 'Alt-Pop / Electronic', category: 'Pop', active: true, icon: 'fa-moon' },
+            { id: '10', name: 'Beyoncé', genre: 'R&B / Pop', category: 'R&B', active: true, icon: 'fa-gem' },
+            { id: '11', name: 'Radiohead', genre: 'Experimental Rock / Art Rock', category: 'Indie', active: true, icon: 'fa-brain' },
+            { id: '12', name: 'The Killers', genre: 'Indie Rock / New Wave', category: 'Rock', active: true, icon: 'fa-dice' },
+            { id: '13', name: 'Pink Floyd', genre: 'Psychedelic Rock / Progressive', category: 'Classic Rock', active: true, icon: 'fa-record-vinyl' },
+            { id: '14', name: 'The Beatles', genre: 'Rock / Pop', category: 'Classic Rock', active: true, icon: 'fa-bug' },
+            { id: '15', name: 'Kendrick Lamar', genre: 'Conscious Hip-Hop', category: 'Hip-Hop', active: true, icon: 'fa-microphone' },
+            { id: '16', name: 'Justice', genre: 'Electro House / French Touch', category: 'Electronic', active: true, icon: 'fa-music' },
+            { id: '17', name: 'Mumford & Sons', genre: 'Folk Rock / Bluegrass', category: 'Folk/Country', active: true, icon: 'fa-guitar' },
+            { id: '18', name: 'ABBA', genre: 'Euro-Pop / Disco', category: 'Pop', active: true, icon: 'fa-star' },
+            { id: '19', name: 'Miles Davis', genre: 'Cool Jazz / Fusion', category: 'Jazz', active: true, icon: 'fa-headphones' },
+            { id: '20', name: 'The Weeknd', genre: 'R&B / Synth-Pop', category: 'R&B', active: true, icon: 'fa-fire' }
+        ];
+
+        const generateExpandedArtworkDatabase = () => {
+            const artStyles = [
+                "Digital Painting", "Digital Oil Painting", "Abstract Acrylic", "Neo-Impressionism",
+                "Surrealist Digital", "Cyberpunk Synthwave", "Classic Oil on Canvas", "Digital Gouache",
+                "3D Generative Canvas", "Watercolor Spectrum", "Minimalist Geometry", "Neo-Classical Digital"
+            ];
+
+            const firstNames = ["Aria", "Julian", "Freja", "Kenzo", "Sienna", "Felix", "Nia", "Lucien", "Astrid", "Devon", "Talia", "Rory", "Callum", "Vesper", "Lila", "Kai", "Soren", "Esmé", "Micah", "Gemma", "Orion", "Selene", "Dante", "Mira", "Zane"];
+            const lastNames = ["Vance", "Mercer", "Kowalski", "Sterling", "O'Connor", "Zhao", "Alvarez", "Nielsen", "Dubois", "Fischer", "Rousseau", "Park", "Moreau", "Sinclair", "Winter", "Vargas", "Lindqvist", "Kaur", "Davenport", "Fontaine", "Sokolov", "Lefevre", "Novak", "Cruz", "Yamamoto"];
+            const titleNouns = ["Echo", "Symphony", "Cadence", "Pulse", "Spectrum", "Tide", "Whisper", "Constellation", "Mirage", "Aura", "Vibration", "Cascade", "Sonata", "Refraction", "Labyrinth", "Solstice", "Equinox", "Horizon", "Interlude", "Elysium", "Monolith", "Genesis", "Oasis", "Synthesis", "Harmony"];
+            const titleAdjectives = ["Ethereal", "Luminous", "Chromatic", "Silent", "Velvet", "Radiant", "Obscure", "Harmonic", "Infinite", "Kinetic", "Sublime", "Nebular", "Prismatic", "Celestial", "Serene", "Temporal", "Resonant", "Dynamic", "Fluid", "Astral", "Somber", "Opulent", "Vivid", "Ephemeral", "Gilded"];
+
+            const fullList = [];
+
+            for (let i = 1; i <= 210; i++) {
+                const fname = firstNames[(i * 3) % firstNames.length];
+                const lname = lastNames[(i * 7) % lastNames.length];
+                const adj = titleAdjectives[(i * 5) % titleAdjectives.length];
+                const noun = titleNouns[(i * 2) % titleNouns.length];
+                const style = artStyles[i % artStyles.length];
+                const year = i % 2 === 0 ? "2025" : "2026";
+
+                // Using high-reliability Picsum seed URLs tailored for digital art & paintings aesthetic
+                const imageUrl = `https://picsum.photos/seed/digital_painting_${i}/600/800`;
+
+                fullList.push({
+                    artist: `${fname} ${lname}`,
+                    title: `${adj} ${noun} No. ${i}`,
+                    year: year,
+                    imageUrl: imageUrl,
+                    bio: `Acclaimed digital fine artist and painter specializing in ${style.toLowerCase()} exploring music texture and light.`,
+                    style: style
+                });
+            }
+            return fullList;
+        };
+
+        const UPCOMING_ARTWORK_DATABASE = generateExpandedArtworkDatabase();
+
+        const BAND_TRIVIA_DATABASE = {
+            'Coldplay': {
+                songs: [
+                    { title: "Yellow", url: "https://www.youtube.com/watch?v=yKNxeF4KMsY", fact: "Chris Martin walked along the beach in Studland Bay in one continuous take for the iconic video." },
+                    { title: "Viva La Vida", url: "https://www.youtube.com/watch?v=dvgZkm1xWPE", fact: "The song title was inspired by a painting by Mexican artist Frida Kahlo." },
+                ],
+                triviaPool: [
+                    { question: "What was Coldplay's original band name when formed in 1996?", options: ["Starfish", "Pectoralz", "The Gold Rush", "Blue Room"], correctAnswer: "Pectoralz", explanation: "Chris Martin and Jonny Buckland first formed a duo called Pectoralz before becoming Starfish, then Coldplay." },
+                    { question: "Which album featured the hit single 'Clocks'?", options: ["Parachutes", "A Rush of Blood to the Head", "X&Y", "Mylo Xyloto"], correctAnswer: "A Rush of Blood to the Head", explanation: "'Clocks' was released in 2002 on their second studio album." },
+                    { question: "What instrument does Will Champion play in Coldplay?", options: ["Lead Guitar", "Bass", "Drums", "Keyboard"], correctAnswer: "Drums", explanation: "Will Champion joined as the drummer despite never having played drums before joining!" }
+                ]
+            },
+            'Taylor Swift': {
+                songs: [
+                    { title: "Love Story", url: "https://www.youtube.com/watch?v=8xg3vE8Ie_E", fact: "Written on Taylor's bedroom floor in under 20 minutes after her family disagreed with a boy she liked." },
+                ],
+                triviaPool: [
+                    { question: "What is Taylor Swift's lucky number?", options: ["7", "13", "22", "89"], correctAnswer: "13", explanation: "Taylor was born on the 13th, turned 13 on Friday the 13th, and paints 13 on her hand." },
+                    { question: "Which of Taylor's albums was her first official pop album?", options: ["Red", "1989", "Reputation", "Lover"], correctAnswer: "1989", explanation: "1989 was officially announced as her first documented full pop album." }
+                ]
+            }
+        };
+
+        const getBandTriviaAndSongs = (bandName, genre = 'Music') => {
+            if (BAND_TRIVIA_DATABASE[bandName]) {
+                return BAND_TRIVIA_DATABASE[bandName];
+            }
+
+            return {
+                songs: [
+                    { title: `${bandName}'s Breakthrough Hit`, url: "#", fact: `${bandName} achieved widespread critical acclaim with this defining performance.` },
+                    { title: `${bandName}'s Chart-Topping Anthem`, url: "#", fact: `This track showcases the signature sound that ${bandName} is celebrated for.` }
+                ],
+                triviaPool: [
+                    {
+                        question: `Which hit single brought ${bandName} international mainstream recognition?`,
+                        options: ["Breakthrough Single", "Top Chart Ballad", "Debut Anthem", "Acoustic Session"],
+                        correctAnswer: "Breakthrough Single",
+                        explanation: `This standout release catapulted ${bandName} into global music chart prominence.`
+                    },
+                    {
+                        question: `What primary musical style or genre defines the career of ${bandName}?`,
+                        options: [genre, "Pop / Dance", "Classic Rock", "Indie Folk"],
+                        correctAnswer: genre,
+                        explanation: `${bandName} is widely recognized as a premier artist within the ${genre} scene.`
+                    },
+                    {
+                        question: `In what decade did ${bandName} primarily rise to critical acclaim?`,
+                        options: ["1990s", "2000s", "2010s", "2020s"],
+                        correctAnswer: "2000s",
+                        explanation: `Their most defining work that shaped their legacy was prominently released in the 2000s.`
+                    },
+                    {
+                        question: `What is a common theme in the songwriting of ${bandName}?`,
+                        options: ["Personal introspection", "Political rebellion", "Sci-fi concepts", "Historical events"],
+                        correctAnswer: "Personal introspection",
+                        explanation: `They are highly regarded for their deeply personal and relatable lyrical content.`
+                    }
+                ]
+            };
+        };
+
+        const PhoneHeader = ({ title, onBack, showBack }) => (
+            <div className="bg-slate-900/95 backdrop-blur-md sticky top-0 z-20 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div className="w-1/3 flex justify-start">
+                    {showBack && (
+                        <button onClick={onBack} className="text-brand-500 hover:text-brand-400 transition-colors flex items-center text-sm font-semibold">
+                            <i className="fas fa-chevron-left mr-1"></i> Back
+                        </button>
+                    )}
+                </div>
+                <div className="w-1/3 text-center font-bold text-slate-100 text-sm truncate">
+                    {title}
+                </div>
+                <div className="w-1/3 flex justify-end text-slate-400 text-xs gap-2">
+                    <i className="fas fa-signal"></i>
+                    <i className="fas fa-wifi"></i>
+                    <i className="fas fa-battery-full text-slate-200"></i>
+                </div>
+            </div>
+        );
+
+        const BottomNav = ({ activeTab, setActiveTab }) => (
+            <div className="glass-effect sticky bottom-0 z-20 flex justify-around items-center py-4 px-2">
+                <button
+                    onClick={() => setActiveTab('bands')}
+                    className={`flex flex-col items-center gap-1 transition-colors ${activeTab === 'bands' ? 'text-brand-500' : 'text-slate-500 hover:text-slate-300'}`}
+                >
+                    <i className="fas fa-music text-xl"></i>
+                    <span className="text-[10px] font-semibold tracking-wider uppercase">Bands</span>
+                </button>
+                <button
+                    onClick={() => setActiveTab('art')}
+                    className={`flex flex-col items-center gap-1 transition-colors ${activeTab === 'art' ? 'text-brand-500' : 'text-slate-500 hover:text-slate-300'}`}
+                >
+                    <i className="fas fa-palette text-xl"></i>
+                    <span className="text-[10px] font-semibold tracking-wider uppercase">Gallery</span>
+                </button>
+            </div>
+        );
+
+        const BandsList = ({ onSelectBand }) => {
+            const [search, setSearch] = useState('');
+
+            const filteredBands = EXPANDED_BANDS_DATASET.filter(b =>
+                b.name.toLowerCase().includes(search.toLowerCase()) ||
+                b.genre.toLowerCase().includes(search.toLowerCase())
+            );
+
+            return (
+                <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
+                    <div className="p-4">
+                        <h2 className="text-2xl font-extrabold text-white mb-1">Artists</h2>
+                        <p className="text-slate-400 text-sm mb-4">Select a band for daily trivia & music.</p>
+
+                        <div className="relative mb-6">
+                            <i className="fas fa-search absolute left-3 top-3.5 text-slate-500"></i>
+                            <input
+                                type="text"
+                                placeholder="Search bands or genres..."
+                                className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:border-brand-500 transition-colors"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="space-y-3">
+                            {filteredBands.map((band, idx) => (
+                                <button
+                                    key={band.id}
+                                    onClick={() => onSelectBand(band)}
+                                    className="w-full text-left bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700/50 rounded-2xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02]"
+                                    style={{ animationDelay: `${idx * 0.05}s` }}
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                                        <i className={`fas ${band.icon} text-white text-lg`}></i>
+                                    </div>
+                                    <div className="flex-1 overflow-hidden">
+                                        <h3 className="text-white font-bold truncate">{band.name}</h3>
+                                        <p className="text-slate-400 text-xs truncate">{band.genre}</p>
+                                    </div>
+                                    <i className="fas fa-chevron-right text-slate-600 text-sm"></i>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const TypingIndicator = () => (
+            <div className="flex items-center space-x-1 bg-slate-800 text-slate-300 w-16 p-3 rounded-2xl rounded-tl-sm shadow-sm animate-fade-in mb-4">
+                <div className="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+                <div className="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+                <div className="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+            </div>
+        );
+
+        const SMSChat = ({ band }) => {
+            const [messages, setMessages] = useState([]);
+            const [isTyping, setIsTyping] = useState(false);
+            const [currentQuestionIdx, setCurrentQuestionIdx] = useState(-1);
+            const [score, setScore] = useState(0);
+            const [quizFinished, setQuizFinished] = useState(false);
+            const messagesEndRef = useRef(null);
+            // Mirrors `score` synchronously so endGame() reads the final tally
+            // even for the last question, whose setScore hasn't committed yet.
+            const scoreRef = useRef(0);
+
+            const data = getBandTriviaAndSongs(band.name, band.genre);
+
+            const scrollToBottom = () => {
+                messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            };
+
+            useEffect(() => {
+                scrollToBottom();
+            }, [messages, isTyping]);
+
+            const addMessage = (msg) => {
+                return new Promise(resolve => {
+                    setMessages(prev => [...prev, msg]);
+                    resolve();
+                });
+            };
+
+            const simulateBotTyping = async (msg, typingDuration = 1200) => {
+                setIsTyping(true);
+                await new Promise(r => setTimeout(r, typingDuration));
+                setIsTyping(false);
+                await addMessage(msg);
+            };
+
+            const startGame = async () => {
+                await simulateBotTyping({ type: 'bot', text: `Hey! Welcome to today's daily drop for ${band.name}. 🎸` }, 800);
+                await simulateBotTyping({ type: 'bot', text: `Let's test your knowledge. Ready?` }, 1000);
+                askQuestion(0);
+            };
+
+            useEffect(() => {
+                startGame();
+            }, []);
+
+            const askQuestion = async (index) => {
+                const q = data.triviaPool[index];
+                if (!q) {
+                    endGame();
+                    return;
+                }
+                setCurrentQuestionIdx(index);
+                await simulateBotTyping({ type: 'bot', text: q.question, options: q.options }, 1200);
+            };
+
+            const handleAnswer = async (selectedOption) => {
+                if (quizFinished) return;
+
+                setMessages(prev => {
+                    const newMsgs = [...prev];
+                    const lastBotMsg = newMsgs[newMsgs.length - 1];
+                    if (lastBotMsg.options) {
+                        lastBotMsg.answered = true;
+                    }
+                    return newMsgs;
+                });
+
+                await addMessage({ type: 'user', text: selectedOption });
+
+                const q = data.triviaPool[currentQuestionIdx];
+                const isCorrect = selectedOption === q.correctAnswer;
+
+                if (isCorrect) {
+                    scoreRef.current += 1;
+                    setScore(scoreRef.current);
+                }
+
+                await simulateBotTyping({
+                    type: 'bot',
+                    text: isCorrect ? '✅ Spot on!' : `❌ Actually, it's ${q.correctAnswer}.`
+                }, 900);
+
+                await simulateBotTyping({ type: 'bot', text: q.explanation }, 1200);
+
+                if (currentQuestionIdx + 1 < data.triviaPool.length) {
+                    askQuestion(currentQuestionIdx + 1);
+                } else {
+                    endGame();
+                }
+            };
+
+            const endGame = async () => {
+                setQuizFinished(true);
+                const total = data.triviaPool.length;
+                const finalScore = scoreRef.current;
+                await simulateBotTyping({ type: 'bot', text: `That's a wrap! You scored ${finalScore}/${total}. 🎵` }, 900);
+
+                if (finalScore === total) {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#f43f5e', '#be123c', '#ffffff']
+                    });
+                }
+
+                await simulateBotTyping({ type: 'bot', text: `Here are some iconic tracks to listen to today:` }, 1200);
+
+                for (const song of data.songs) {
+                    await simulateBotTyping({
+                        type: 'bot',
+                        isSong: true,
+                        title: song.title,
+                        fact: song.fact,
+                        url: song.url
+                    }, 1000);
+                }
+            };
+
+            return (
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-slate-900 pb-28">
+                    <div className="text-center text-xs text-slate-500 my-4 uppercase tracking-widest font-semibold">
+                        Today at {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                    </div>
+
+                    {messages.map((msg, i) => (
+                        <div key={i} className={`flex flex-col animate-slide-up ${msg.type === 'user' ? 'items-end' : 'items-start'}`}>
+                            {msg.isSong ? (
+                                <div className="bg-slate-800 border border-slate-700 rounded-2xl p-4 max-w-[85%] shadow-md">
+                                    <div className="flex items-start gap-3">
+                                        <div className="bg-brand-500/20 text-brand-500 rounded-full p-2 mt-1">
+                                            <i className="fas fa-play"></i>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-white mb-1">{msg.title}</h4>
+                                            <p className="text-xs text-slate-400 mb-3">{msg.fact}</p>
+                                            <a href={msg.url} target="_blank" className="inline-block bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold py-2 px-4 rounded-full transition-colors">
+                                                Listen Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className={`px-4 py-3 max-w-[80%] shadow-sm ${
+                                    msg.type === 'user'
+                                        ? 'bg-brand-600 text-white rounded-2xl rounded-tr-sm'
+                                        : 'bg-slate-800 text-slate-100 rounded-2xl rounded-tl-sm'
+                                }`}>
+                                    <p className="text-sm leading-relaxed">{msg.text}</p>
+                                </div>
+                            )}
+
+                            {msg.options && !msg.answered && (
+                                <div className="flex flex-col gap-2 mt-3 w-full max-w-[80%] pl-2">
+                                    {msg.options.map((opt, j) => (
+                                        <button
+                                            key={j}
+                                            onClick={() => handleAnswer(opt)}
+                                            className="bg-slate-800 hover:bg-slate-700 border border-brand-500/30 text-brand-400 text-left px-4 py-2.5 rounded-xl text-sm font-semibold transition-all hover:pl-5"
+                                        >
+                                            {opt}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+
+                    {isTyping && <TypingIndicator />}
+                    <div ref={messagesEndRef} />
+                </div>
+            );
+        };
+
+        const ArtGallery = () => {
+            const [selectedFilter, setSelectedFilter] = useState('All');
+
+            const stylesList = ['All', 'Digital Painting', 'Digital Oil Painting', 'Classic Oil on Canvas', 'Surrealist Digital', 'Abstract Acrylic', 'Cyberpunk Synthwave', 'Neo-Impressionism'];
+
+            const filteredArtworks = selectedFilter === 'All'
+                ? UPCOMING_ARTWORK_DATABASE
+                : UPCOMING_ARTWORK_DATABASE.filter(art => art.style === selectedFilter);
+
+            return (
+                <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
+                    <div className="p-4">
+                        <div className="flex items-center justify-between mb-1">
+                            <h2 className="text-2xl font-extrabold text-white">Digital Gallery & Paintings</h2>
+                            <span className="text-xs bg-brand-500/20 text-brand-400 px-2.5 py-1 rounded-full font-semibold">
+                                {filteredArtworks.length} Pieces
+                            </span>
+                        </div>
+                        <p className="text-slate-400 text-sm mb-4">Curated collection of digital fine art, oil paintings & acoustic canvases.</p>
+
+                        <div className="flex gap-2 overflow-x-auto pb-3 mb-4 custom-scrollbar">
+                            {stylesList.map((style, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setSelectedFilter(style)}
+                                    className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${
+                                        selectedFilter === style
+                                            ? 'bg-brand-600 text-white shadow-md shadow-brand-600/30'
+                                            : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                                    }`}
+                                >
+                                    {style}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="columns-2 gap-3 space-y-3">
+                            {filteredArtworks.map((art, idx) => (
+                                <div key={idx} className="break-inside-avoid relative group rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
+                                    <div className="relative overflow-hidden bg-slate-900 min-h-[150px]">
+                                        <img
+                                            src={art.imageUrl}
+                                            alt={art.title}
+                                            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
+                                            loading="lazy"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://placehold.co/600x800/1e293b/f43f5e?text=Digital+Painting";
+                                            }}
+                                        />
+                                        <div className="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-sm text-[9px] text-brand-300 px-2 py-0.5 rounded-md font-semibold border border-brand-500/30">
+                                            {art.style}
+                                        </div>
+                                    </div>
+                                    <div className="p-3 bg-gradient-to-t from-slate-900 via-slate-900/90 to-slate-900/40">
+                                        <h3 className="text-white text-xs font-bold truncate mb-0.5">{art.title}</h3>
+                                        <p className="text-brand-400 text-[10px] truncate font-medium">{art.artist} • {art.year}</p>
+                                        <p className="text-slate-400 text-[9px] line-clamp-2 mt-1 opacity-80">{art.bio}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [activeTab, setActiveTab] = useState('bands');
+            const [selectedBand, setSelectedBand] = useState(null);
+
+            const handleBack = () => {
+                setSelectedBand(null);
+            };
+
+            const getHeaderTitle = () => {
+                if (selectedBand) return selectedBand.name;
+                if (activeTab === 'bands') return "Daily Lineup";
+                return "Gallery";
+            };
+
+            return (
+                <div className="relative w-full max-w-md h-[100dvh] md:h-[850px] md:rounded-[3rem] md:shadow-2xl md:border-[12px] border-slate-800 bg-slate-900 overflow-hidden flex flex-col mx-auto">
+                    <div className="hidden md:block absolute top-0 inset-x-0 h-7 w-40 bg-slate-800 mx-auto rounded-b-3xl z-30"></div>
+
+                    <PhoneHeader
+                        title={getHeaderTitle()}
+                        onBack={handleBack}
+                        showBack={selectedBand !== null}
+                    />
+
+                    <div className="flex-1 relative overflow-hidden flex flex-col bg-slate-900">
+                        {selectedBand ? (
+                            <SMSChat band={selectedBand} key={selectedBand.id} />
+                        ) : activeTab === 'bands' ? (
+                            <BandsList onSelectBand={setSelectedBand} />
+                        ) : (
+                            <ArtGallery />
+                        )}
+                    </div>
+
+                    {!selectedBand && (
+                        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
+                    )}
+
+                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white/20 rounded-full z-30"></div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
