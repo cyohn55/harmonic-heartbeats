@@ -97,6 +97,17 @@
             return `https://www.youtube.com/results?search_query=${query}`;
         };
 
+        // Deterministic "artist of the day" — mirrors the bot's dailyArtist.js so the
+        // website and the emailed link always land on the same artist for a given date.
+        const hashDateString = (value) => {
+            let hash = 0;
+            for (let i = 0; i < value.length; i++) hash = (hash * 31 + value.charCodeAt(i)) >>> 0;
+            return hash;
+        };
+        const dailyDateKey = (date) => date.toISOString().slice(0, 10);
+        const getDailyArtist = (artists, date = new Date()) =>
+            artists[hashDateString(dailyDateKey(date)) % artists.length];
+
         const generateExpandedArtworkDatabase = () => {
             const artStyles = [
                 "Digital Painting", "Digital Oil Painting", "Abstract Acrylic", "Neo-Impressionism",
@@ -167,24 +178,27 @@
             </div>
         );
 
-        const BottomNav = ({ activeTab, setActiveTab }) => (
-            <div className="glass-effect sticky bottom-0 z-20 flex justify-around items-center py-4 px-2">
-                <button
-                    onClick={() => setActiveTab('bands')}
-                    className={`flex flex-col items-center gap-1 transition-colors ${activeTab === 'bands' ? 'text-brand-500' : 'text-slate-500 hover:text-slate-300'}`}
-                >
-                    <i className="fas fa-music text-xl"></i>
-                    <span className="text-[10px] font-semibold tracking-wider uppercase">Bands</span>
-                </button>
-                <button
-                    onClick={() => setActiveTab('art')}
-                    className={`flex flex-col items-center gap-1 transition-colors ${activeTab === 'art' ? 'text-brand-500' : 'text-slate-500 hover:text-slate-300'}`}
-                >
-                    <i className="fas fa-palette text-xl"></i>
-                    <span className="text-[10px] font-semibold tracking-wider uppercase">Gallery</span>
-                </button>
-            </div>
-        );
+        const BottomNav = ({ activeTab, setActiveTab }) => {
+            const tabs = [
+                { id: 'today', icon: 'fa-calendar-day', label: 'Today' },
+                { id: 'bands', icon: 'fa-music', label: 'Bands' },
+                { id: 'art', icon: 'fa-palette', label: 'Gallery' },
+            ];
+            return (
+                <div className="glass-effect sticky bottom-0 z-20 flex justify-around items-center py-4 px-2">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`flex flex-col items-center gap-1 transition-colors ${activeTab === tab.id ? 'text-brand-500' : 'text-slate-500 hover:text-slate-300'}`}
+                        >
+                            <i className={`fas ${tab.icon} text-xl`}></i>
+                            <span className="text-[10px] font-semibold tracking-wider uppercase">{tab.label}</span>
+                        </button>
+                    ))}
+                </div>
+            );
+        };
 
         const BandsList = ({ bands, onSelectBand }) => {
             const [search, setSearch] = useState('');
@@ -484,6 +498,124 @@
             );
         };
 
+        const DailyTrivia = ({ questions }) => {
+            const [index, setIndex] = useState(0);
+            const [selected, setSelected] = useState(null);
+            const [score, setScore] = useState(0);
+            const [finished, setFinished] = useState(false);
+
+            const question = questions[index];
+            const answered = selected !== null;
+
+            const choose = (option) => {
+                if (answered) return;
+                setSelected(option);
+                if (option === question.correctAnswer) setScore((s) => s + 1);
+            };
+
+            const next = () => {
+                if (index + 1 < questions.length) {
+                    setIndex(index + 1);
+                    setSelected(null);
+                } else {
+                    setFinished(true);
+                    if (score === questions.length) {
+                        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#f43f5e', '#be123c', '#ffffff'] });
+                    }
+                }
+            };
+
+            if (finished) {
+                return (
+                    <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-6 text-center">
+                        <p className="text-slate-300 text-sm uppercase tracking-widest mb-1">Your score</p>
+                        <p className="text-4xl font-extrabold text-white mb-2">{score}/{questions.length}</p>
+                        <p className="text-brand-400 font-semibold">{score === questions.length ? 'Perfect! 🏆' : 'Come back tomorrow for a new artist! 🎶'}</p>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-4">
+                    <p className="text-slate-400 text-xs uppercase tracking-widest mb-2">Question {index + 1} of {questions.length}</p>
+                    <h4 className="text-white font-bold mb-4">{question.question}</h4>
+                    <div className="space-y-2">
+                        {question.options.map((option, i) => {
+                            const isCorrect = option === question.correctAnswer;
+                            const isPicked = option === selected;
+                            let style = 'bg-slate-800 border-slate-700 text-slate-200 hover:border-brand-500/50';
+                            if (answered && isCorrect) style = 'bg-green-500/20 border-green-500 text-green-300';
+                            else if (answered && isPicked) style = 'bg-red-500/20 border-red-500 text-red-300';
+                            else if (answered) style = 'bg-slate-800 border-slate-700 text-slate-500';
+                            return (
+                                <button key={i} onClick={() => choose(option)} disabled={answered}
+                                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold border transition-all ${style}`}>
+                                    {option}
+                                </button>
+                            );
+                        })}
+                    </div>
+                    {answered && (
+                        <div className="mt-4 animate-fade-in">
+                            <p className="text-slate-300 text-sm mb-3"><span className="font-bold text-white">Why:</span> {question.explanation}</p>
+                            <button onClick={next} className="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-2.5 rounded-xl transition-colors">
+                                {index + 1 < questions.length ? 'Next question' : 'See my score'}
+                            </button>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const DailyView = ({ artists }) => {
+            const artist = getDailyArtist(artists);
+            const featuredSong = artist.songs[0];
+            const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+
+            return (
+                <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
+                    <div className="p-4 space-y-5">
+                        <div>
+                            <p className="text-brand-400 text-xs font-bold uppercase tracking-widest">{today}</p>
+                            <h2 className="text-2xl font-extrabold text-white mt-1">Today's Artist</h2>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                                <i className={`fas ${artist.icon || 'fa-music'} text-white text-xl`}></i>
+                            </div>
+                            <div>
+                                <h3 className="text-white text-xl font-bold">{artist.name}</h3>
+                                <p className="text-slate-400 text-sm">{artist.genre}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p className="text-slate-300 text-sm font-semibold mb-2">🎬 {featuredSong.title}</p>
+                            {featuredSong.youtubeId ? (
+                                <div className="relative w-full rounded-xl overflow-hidden border border-slate-700" style={{ paddingBottom: '56.25%' }}>
+                                    <iframe className="absolute inset-0 w-full h-full" src={`https://www.youtube.com/embed/${featuredSong.youtubeId}`}
+                                        title={featuredSong.title} frameBorder="0" loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                </div>
+                            ) : (
+                                <a href={buildYouTubeSearchUrl(artist.name, featuredSong.title)} target="_blank" rel="noopener"
+                                    className="flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition-colors">
+                                    <i className="fab fa-youtube"></i> Watch on YouTube
+                                </a>
+                            )}
+                            {featuredSong.fact && <p className="text-slate-400 text-xs mt-2 italic">{featuredSong.fact}</p>}
+                        </div>
+
+                        <div>
+                            <h4 className="text-white font-bold mb-3">🎵 Today's Trivia</h4>
+                            <DailyTrivia questions={artist.trivia} key={artist.id} />
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
         const LoadingScreen = ({ message }) => (
             <div className="flex-1 flex flex-col items-center justify-center text-center p-8 gap-4 animate-fade-in">
                 <i className="fas fa-compact-disc text-4xl text-brand-500 animate-spin"></i>
@@ -492,7 +624,9 @@
         );
 
         const App = () => {
-            const [activeTab, setActiveTab] = useState('bands');
+            // The daily email links to "#today", which should open the Today tab.
+            const initialTab = window.location.hash.replace('#', '') === 'today' ? 'today' : 'bands';
+            const [activeTab, setActiveTab] = useState(initialTab);
             const [selectedBand, setSelectedBand] = useState(null);
             const [artists, setArtists] = useState(null);
             const [loadError, setLoadError] = useState(null);
@@ -514,8 +648,18 @@
 
             const getHeaderTitle = () => {
                 if (selectedBand) return selectedBand.name;
+                if (activeTab === 'today') return "Today";
                 if (activeTab === 'bands') return "Daily Lineup";
                 return "Gallery";
+            };
+
+            const renderMainContent = () => {
+                if (selectedBand) return <SMSChat band={selectedBand} key={selectedBand.id} />;
+                if (loadError) return <LoadingScreen message={`Couldn't load artists: ${loadError}`} />;
+                if (activeTab === 'art') return <ArtGallery />;
+                if (artists === null) return <LoadingScreen message="Loading today's music..." />;
+                if (activeTab === 'today') return <DailyView artists={artists} />;
+                return <BandsList bands={artists} onSelectBand={setSelectedBand} />;
             };
 
             return (
@@ -529,19 +673,7 @@
                     />
 
                     <div className="flex-1 relative overflow-hidden flex flex-col bg-slate-900">
-                        {selectedBand ? (
-                            <SMSChat band={selectedBand} key={selectedBand.id} />
-                        ) : activeTab === 'bands' ? (
-                            loadError ? (
-                                <LoadingScreen message={`Couldn't load artists: ${loadError}`} />
-                            ) : artists === null ? (
-                                <LoadingScreen message="Loading today's lineup..." />
-                            ) : (
-                                <BandsList bands={artists} onSelectBand={setSelectedBand} />
-                            )
-                        ) : (
-                            <ArtGallery />
-                        )}
+                        {renderMainContent()}
                     </div>
 
                     {!selectedBand && (
