@@ -567,8 +567,12 @@
             );
         };
 
-        const DailyView = ({ artists }) => {
-            const artist = getDailyArtist(artists);
+        // Renders the daily "video + trivia" experience for a single artist.
+        // The Today tab passes no `artist` and falls back to the artist of the
+        // day; selecting a band passes that band so it opens the same layout.
+        const DailyView = ({ artists, artist: selectedArtist }) => {
+            const artist = selectedArtist || getDailyArtist(artists);
+            const isDailyFeature = !selectedArtist;
             const featuredSong = artist.songs[0];
             const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 
@@ -576,8 +580,12 @@
                 <div className="flex-1 overflow-y-auto custom-scrollbar bg-slate-900 pb-24 animate-fade-in">
                     <div className="p-4 space-y-5">
                         <div>
-                            <p className="text-brand-400 text-xs font-bold uppercase tracking-widest">{today}</p>
-                            <h2 className="text-2xl font-extrabold text-white mt-1">Today's Artist</h2>
+                            <p className="text-brand-400 text-xs font-bold uppercase tracking-widest">
+                                {isDailyFeature ? today : artist.genre}
+                            </p>
+                            <h2 className="text-2xl font-extrabold text-white mt-1">
+                                {isDailyFeature ? "Today's Artist" : artist.name}
+                            </h2>
                         </div>
 
                         <div className="flex items-center gap-4">
@@ -654,7 +662,7 @@
             };
 
             const renderMainContent = () => {
-                if (selectedBand) return <SMSChat band={selectedBand} key={selectedBand.id} />;
+                if (selectedBand) return <DailyView artist={selectedBand} key={selectedBand.id} />;
                 if (loadError) return <LoadingScreen message={`Couldn't load artists: ${loadError}`} />;
                 if (activeTab === 'art') return <ArtGallery />;
                 if (artists === null) return <LoadingScreen message="Loading today's music..." />;
